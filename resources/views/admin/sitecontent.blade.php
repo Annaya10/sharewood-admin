@@ -79,6 +79,25 @@
                                     Page</a>
                             </td>
                         </tr>
+
+                        
+                        <tr>
+                            <td>5</td>
+                            <td width="65%">Corporate Events</td>
+                            <td>
+                                <a href="{{ url('admin/pages/corporate-events') }}" class="btn btn-primary active">Edit
+                                    Page</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td width="65%">Tournaments</td>
+                            <td>
+                                <a href="{{ url('admin/pages/tournaments') }}" class="btn btn-primary active">Edit
+                                    Page</a>
+                            </td>
+                        </tr>
                         <tr>
                             <td>6</td>
                             <td width="65%">Blog</td>

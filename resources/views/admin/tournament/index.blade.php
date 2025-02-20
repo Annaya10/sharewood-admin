@@ -7,7 +7,7 @@
 @endsection
 @section('page_content')
 @if (request()->segment(3) == 'edit' || request()->segment(3) == 'add')
-{!!breadcrumb('Add/Update Blog Post')!!}
+{!!breadcrumb('Add/Update Tournament Post')!!}
 <form class="form theme-form" method="post" action="" enctype="multipart/form-data"
   id="saveForm">
   @csrf
@@ -38,23 +38,28 @@
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" name="title" value="{{!empty($row->title) ? $row->title : ""}}">
               </div>
-              <div class="mb-3">
-                <label for="name" class="form-label">Category</label>
-                <select name="category" class="form-control" required>
-                  <option value="">Select Category</option>
-                  @foreach ($categories as $category)
-                  <option value="{{ $category->id }}"
-                    {{ !empty($row) ? ($row->category == $category->id ? 'selected' : '') : '' }}>
-                    {{ !empty($category->name) ? $category->name : '' }}
-                  </option>
-                  @endforeach
-                </select>
-              </div>
+              
               <div class="mb-3">
                 <label for="blog_date" class="form-label">Blog Date</label>
                 <input type="date" class="form-control" name="blog_date"
                   value="{{ !empty($row->blog_date) ? \Carbon\Carbon::parse($row->blog_date)->format('Y-m-d') : '' }}">
               </div>
+
+              <div class="mb-3">
+                <label for="s_time" class="form-label">Start Time</label>
+                <input type="time" class="form-control" name="s_time"
+                  value="{{ !empty($row->s_time) ? $row->s_time : '' }}">
+              </div>
+
+              <div class="mb-3">
+                <label for="e_time" class="form-label">End Time</label>
+                <input type="time" class="form-control" name="e_time"
+                  value="{{ !empty($row->e_time) ? $row->e_time : '' }}">
+              </div>
+
+              
+
+              
 
 
               <div class="mb-3">
@@ -116,7 +121,7 @@
 </form>
 
 @else
-{!!breadcrumb('Blog Posts',url('admin/blog/add/'))!!}
+{!!breadcrumb('Tournament Posts',url('admin/tournament/add/'))!!}
 <div class="card">
   <div class="card-body">
     <div class="row">
@@ -127,7 +132,6 @@
             <tr>
               <th>Sr#</th>
               <th>Post</th>
-              <th>Category</th>
               <th>Status</th>
               <th>Featured</th>
               <th>Action</th>
@@ -146,7 +150,6 @@
                 </div>
 
               </td>
-              <td>{!! $row->cat_name !!}</td>
               <td>{!! getStatus($row->status) !!}</td>
               <td>{!! getFeatured($row->featured) !!}</td>
               <td>
@@ -156,12 +159,12 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li>
-                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/blog/edit/' . $row->id) }}">
+                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/tournament/edit/' . $row->id) }}">
                         <i class="fs-4 ti ti-edit"></i>Edit
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/blog/delete/' . $row->id) }}" onclick="return confirm('Are you sure?');">
+                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/tournament/delete/' . $row->id) }}" onclick="return confirm('Are you sure?');">
                         <i class="fs-4 ti ti-trash"></i>Delete
                       </a>
                     </li>

@@ -89,6 +89,10 @@
                     </div>
                 </div>
 
+
+
+                
+
             </div>
         </div>
 
@@ -117,10 +121,77 @@
                 <div class="col-md-12">
                     <div class="mb-3">
                         <label class="form-label" for="section1_text">Text</label>
-                        <textarea id="section1_text" name="section1_text" rows="5" class=" editor">{{ !empty($sitecontent['section1_text']) ? $sitecontent['section1_text'] : "" }}</textarea>
+                        <textarea id="section1_text" name="section1_text" rows="5" class="form-control">{{ !empty($sitecontent['section1_text']) ? $sitecontent['section1_text'] : "" }}</textarea>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+
+            
+
+<?php $how_block_count = 0; ?>
+    <?php $how_block_count2 = 1; ?>
+@for ($i = 2; $i <= 5; $i++)
+    <?php $how_block_count = $how_block_count + 1; ?>
+
+    <?php $how_block_count2 = $how_block_count2 + 1; ?>
+    <div class="col-6">
+        <div class="card">
+
+            <div class="card-header">
+                <h5>Block {{ $how_block_count }}</h5>
+            </div>
+        
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="card w-100 border position-relative overflow-hidden">
+                            <div class="card-body p-4">
+                            <div class="text-center">
+                            <div class="file_choose_icon">
+                                <img src="{{ get_site_image_src('images', !empty($sitecontent['image' . $how_block_count2]) ? $sitecontent['image' . $how_block_count2] : '') }}" alt="matdash-img" class="img-fluid " >
+                            </div>
+                                <p class="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                <input class="form-control uploadFile" name="image{{ $how_block_count2 }}" type="file"
+                                    data-bs-original-title="" title="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label"
+                                for="sec1_heading{{ $i }}">Heading
+                                {{ $how_block_count }}</label>
+                            <input class="form-control"
+                                id="sec1_heading{{ $i }}" type="text"
+                                name="sec1_heading{{ $i }}" placeholder=""
+                                value="{{ !empty($sitecontent['sec1_heading' . $i]) ? $sitecontent['sec1_heading' . $i] : "" }}">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-2">
+                            <label class="form-label"
+                                for="sec1_text{{ $i }}">Text
+                                {{ $how_block_count }}</label>
+                            <textarea id="sec1_text{{ $i }}" name="sec1_text{{ $i }}" rows="4"
+                                class="form-control">{{ !empty($sitecontent['sec1_text' . $i]) ? $sitecontent['sec1_text' . $i] : "" }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endfor
+
+</div>
               
 
             </div>
@@ -150,7 +221,17 @@
                 <div class="col-md-12">
                     <div class="mb-3">
                         <label class="form-label" for="section2_text">Text</label>
-                        <textarea id="section2_text" name="section2_text" rows="5" class=" editor">{{ !empty($sitecontent['section2_text']) ? $sitecontent['section2_text'] : "" }}</textarea>
+                        <textarea id="section2_text" name="section2_text" rows="5" class="form-control">{{ !empty($sitecontent['section2_text']) ? $sitecontent['section2_text'] : "" }}</textarea>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="form-label" for="section2_text_content">Content</label>
+                        <textarea id="section2_text_content" name="section2_text_content" rows="5" class=" editor">{{ !empty($sitecontent['section2_text_content']) ? $sitecontent['section2_text_content'] : "" }}</textarea>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ use App\Http\Controllers\admin\Markers;
 use App\Http\Controllers\admin\Center_categories;
 
 
-use App\Http\Controllers\admin\Blog;
+use App\Http\Controllers\admin\Tournaments;
 use App\Http\Controllers\admin\Blog_categories;
 use App\Http\Controllers\admin\Member;
 
@@ -119,6 +119,8 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/pages/proshop-boutique', [Pages::class, 'proshop_boutique']);
     Route::match(['GET', 'POST'], '/admin/pages/hospitality-group-commitments', [Pages::class, 'hospitality_group_commitments']);
     Route::match(['GET', 'POST'], '/admin/pages/course-guide-scorecard', [Pages::class, 'course_guide_scorecard']);
+    Route::match(['GET', 'POST'], '/admin/pages/corporate-events', [Pages::class, 'corporate_events']);
+    Route::match(['GET', 'POST'], '/admin/pages/tournaments', [Pages::class, 'tournaments']);
 
     /*==============================Games & Levels =====================================*/
     Route::get('/admin/games', [Games::class, 'index']);
@@ -159,16 +161,16 @@ Route::middleware(['is_admin'])->group(function () {
 
 
 
-    /*==============================BLOG Categories Module =====================================*/
+    /*==============================Tournaments  Module =====================================*/
     Route::get('/admin/blog_categories', [Blog_categories::class, 'index']);
     Route::match(['GET', 'POST'], '/admin/blog_categories/add', [Blog_categories::class, 'add']);
     Route::match(['GET', 'POST'], '/admin/blog_categories/edit/{id}', [Blog_categories::class, 'edit']);
     Route::match(['GET', 'POST'], '/admin/blog_categories/delete/{id}', [Blog_categories::class, 'delete']);
     /*==============================BLOG =====================================*/
-    Route::get('/admin/blog', [Blog::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/blog/add', [Blog::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/blog/edit/{id}', [Blog::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/blog/delete/{id}', [Blog::class, 'delete']);
+    Route::get('/admin/tournament', [Tournaments::class, 'index']);
+    Route::match(['GET', 'POST'], '/admin/tournament/add', [Tournaments::class, 'add']);
+    Route::match(['GET', 'POST'], '/admin/tournament/edit/{id}', [Tournaments::class, 'edit']);
+    Route::match(['GET', 'POST'], '/admin/tournament/delete/{id}', [Tournaments::class, 'delete']);
     /*==============================fdghfghfg =====================================*/
     Route::get('/admin/contact', [Contact::class, 'index']);
     Route::match(['GET', 'POST'], '/admin/contact/view/{id}', [Contact::class, 'view']);

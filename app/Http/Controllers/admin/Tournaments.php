@@ -3,21 +3,18 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog_model;
-use App\Models\Blog_categories_model;
+use App\Models\Tournamnet_model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class Blog extends Controller
+class Tournaments extends Controller
 {
     public function index()
     {
         has_access(17);
-        $this->data['rows'] = Blog_model::orderBy('id', 'DESC')->get();
-        foreach ($this->data['rows'] as $row) {
-            $row->cat_name = $row->category_row->name;
-        }
-        return view('admin.blog.index', $this->data);
+        $this->data['rows'] = Tournamnet_model::orderBy('id', 'DESC')->get();
+        
+        return view('admin.tournament.index', $this->data);
     }
     public function add(Request $request)
     {
@@ -58,23 +55,23 @@ class Blog extends Controller
             $data['title'] = $input['title'];
             $data['slug'] = checkSlug(Str::slug($data['title'], '-'), 'blog');
             $data['detail'] = $input['detail'];
-            $data['category'] = $input['category'];
 
             $data['blog_date'] = $input['blog_date'];
+            $data['e_time'] = $input['e_time'];
+            $data['s_time'] = $input['s_time'];
 
             // pr($data);
-            $id = Blog_model::create($data);
-            return redirect('admin/blog/')
+            $id = Tournamnet_model::create($data);
+            return redirect('admin/tournament/')
                 ->with('success', 'Content Updated Successfully');
         }
         $this->data['enable_editor'] = true;
-        $this->data['categories'] = Blog_categories_model::where('status', 1)->get();
-        return view('admin.blog.index', $this->data);
+        return view('admin.tournament.index', $this->data);
     }
     public function edit(Request $request, $id)
     {
         has_access(17);
-        $blog = Blog_model::find($id);
+        $tournament = Tournamnet_model::find($id);
         $input = $request->all();
         // pr($input);
         if ($input) {
@@ -84,57 +81,57 @@ class Blog extends Controller
                 $request->validate([
                     'image' => 'mimes:png,jpg,jpeg,svg,gif|max:40000'
                 ]);
-                $image = $request->file('image')->store('public/blog/');
+                $image = $request->file('image')->store('public/tournament/');
                 if (!empty($image)) {
-                    removeImage("blog/" . $blog->image);
-                    generateThumbnail('blog', basename($image), 'square', 'large');
-                    $blog->image = basename($image);
+                    removeImage("tournament/" . $tournament->image);
+                    generateThumbnail('tournament', basename($image), 'square', 'large');
+                    $tournament->image = basename($image);
                 }
             }
             if (!empty($input['status'])) {
-                $blog->status = 1;
+                $tournament->status = 1;
             } else {
-                $blog->status = 0;
+                $tournament->status = 0;
             }
             if (!empty($input['featured'])) {
-                $blog->featured = 1;
+                $tournament->featured = 1;
             } else {
-                $blog->featured = 0;
+                $tournament->featured = 0;
             }
             if (!empty($input['popular'])) {
-                $blog->popular = 1;
+                $tournament->popular = 1;
             } else {
-                $blog->popular = 0;
+                $tournament->popular = 0;
             }
-            $blog->meta_title = $input['meta_title'];
-            $blog->meta_description = $input['meta_description'];
-            $blog->meta_keywords = $input['meta_keywords'];
-            // $blog->tags=$input['tags'];
-            $blog->title = $input['title'];
-            $blog->slug = checkSlug(Str::slug($blog->title, '-'), 'blog', $blog->id);
-            $blog->detail = $input['detail'];
-            // pr($blog->category);
-            $blog->category = $input['category'];
-            $blog->blog_date = $input['blog_date'];
+            $tournament->meta_title = $input['meta_title'];
+            $tournament->meta_description = $input['meta_description'];
+            $tournament->meta_keywords = $input['meta_keywords'];
+            // $tournament->tags=$input['tags'];
+            $tournament->title = $input['title'];
+            $tournament->slug = checkSlug(Str::slug($tournament->title, '-'), 'blog', $tournament->id);
+            $tournament->detail = $input['detail'];
+            // pr($tournament->category);
+            $tournament->blog_date = $input['blog_date'];
+            $tournament->e_time = $input['e_time'];
+            $tournament->s_time = $input['s_time'];
 
             // pr($input['category']);
-            $blog->update();
-            return redirect('admin/blog/edit/' . $request->segment(4))
+            $tournament->update();
+            return redirect('admin/tournament/edit/' . $request->segment(4))
                 ->with('success', 'Content Updated Successfully');
         }
-        $this->data['row'] = Blog_model::find($id);
+        $this->data['row'] = Tournamnet_model::find($id);
         $this->data['enable_editor'] = true;
-        $this->data['categories'] = Blog_categories_model::where('status', 1)->get();
 
-        return view('admin.blog.index', $this->data);
+        return view('admin.tournament.index', $this->data);
     }
     public function delete($id)
     {
         has_access(17);
-        $blog = Blog_model::find($id);
-        removeImage("blog/" . $blog->image);
-        $blog->delete();
-        return redirect('admin/blog/')
+        $tournament = Tournamnet_model::find($id);
+        removeImage("tournament/" . $tournament->image);
+        $tournament->delete();
+        return redirect('admin/tournament/')
             ->with('error', 'Content deleted Successfully');
     }
 }

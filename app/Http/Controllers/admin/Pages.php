@@ -92,6 +92,100 @@ class Pages extends Controller
 
         return view('admin.website_pages.site_courses',$this->data);
     }
+
+
+    public function corporate_events(Request $request){
+        $page=Sitecontent::where('ckey',$request->segment(3))->first();
+        if(empty($page)){
+            $page = new Sitecontent;
+            $page->ckey=$request->segment(3);
+            $page->code='';
+            $page->save();
+        }
+        $input = $request->all();
+        if($input){
+            $content_row = unserialize($page->code);
+            if(!is_array($content_row))
+                $content_row = array();
+            for ($i = 1; $i <= 15; $i++) {
+                if ($request->hasFile('image'.$i)) {
+
+                    $request->validate([
+                        'image'.$i => 'mimes:png,jpg,jpeg,svg,gif|max:40000'
+                    ]);
+                    $image=$request->file('image'.$i)->store('public/images/');
+                    if(!empty($image)){
+                        $input['image'.$i]=basename($image);
+                    }
+
+                }
+
+            }
+            // pr($input);
+            $data = serialize(array_merge($content_row, $input));
+            $page->ckey=$request->segment(3);
+            $page->code=$data;
+            $page->save();
+            return redirect('admin/pages/'.$request->segment(3))
+                ->with('success','Content Updated Successfully');
+        }
+        $this->data['row']=Sitecontent::where('ckey',$request->segment(3))->first();;
+        if(!empty($this->data['row']->code)){
+            $this->data['sitecontent']=unserialize($this->data['row']->code);
+        }
+        else{
+            $this->data['sitecontent']=array();
+        }
+
+        return view('admin.website_pages.site_corporate_events',$this->data);
+    }
+
+
+    public function tournaments(Request $request){
+        $page=Sitecontent::where('ckey',$request->segment(3))->first();
+        if(empty($page)){
+            $page = new Sitecontent;
+            $page->ckey=$request->segment(3);
+            $page->code='';
+            $page->save();
+        }
+        $input = $request->all();
+        if($input){
+            $content_row = unserialize($page->code);
+            if(!is_array($content_row))
+                $content_row = array();
+            for ($i = 1; $i <= 15; $i++) {
+                if ($request->hasFile('image'.$i)) {
+
+                    $request->validate([
+                        'image'.$i => 'mimes:png,jpg,jpeg,svg,gif|max:40000'
+                    ]);
+                    $image=$request->file('image'.$i)->store('public/images/');
+                    if(!empty($image)){
+                        $input['image'.$i]=basename($image);
+                    }
+
+                }
+
+            }
+            // pr($input);
+            $data = serialize(array_merge($content_row, $input));
+            $page->ckey=$request->segment(3);
+            $page->code=$data;
+            $page->save();
+            return redirect('admin/pages/'.$request->segment(3))
+                ->with('success','Content Updated Successfully');
+        }
+        $this->data['row']=Sitecontent::where('ckey',$request->segment(3))->first();;
+        if(!empty($this->data['row']->code)){
+            $this->data['sitecontent']=unserialize($this->data['row']->code);
+        }
+        else{
+            $this->data['sitecontent']=array();
+        }
+
+        return view('admin.website_pages.site_tournaments',$this->data);
+    }
    
     public function course_guide_scorecard(Request $request){
         $page=Sitecontent::where('ckey',$request->segment(3))->first();

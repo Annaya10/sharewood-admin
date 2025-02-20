@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog_model extends Model
+class Tournamnet_model extends Model
 {
     use HasFactory;
-    protected $table = 'blog';
+    protected $table = 'tournaments';
     protected $fillable = [
         'title',
         'category',
@@ -16,6 +16,8 @@ class Blog_model extends Model
         'meta_description',
         'meta_keywords',
         'blog_date',
+        's_time',
+        'e_time',
 
         'detail',
         'image',
@@ -24,8 +26,5 @@ class Blog_model extends Model
         'popular',
         'slug',
     ];
-    public function category_row()
-    {
-        return $this->belongsTo(Blog_categories_model::class, 'category', 'id');
-    }
+    
 }

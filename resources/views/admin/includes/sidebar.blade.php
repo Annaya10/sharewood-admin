@@ -36,7 +36,7 @@
           </a>
         </li>
 
-        <li class="sidebar-item">
+        <!-- <li class="sidebar-item">
           <a class="sidebar-link {{ $admin_page == 'manage-boosters' ? 'active' : '' }}" href="{{ url('admin/manage-boosters') }}" aria-expanded="false">
             <iconify-icon icon="oui:pages-select"></iconify-icon>
             <span class="hide-menu">Manage Boosters</span>
@@ -48,7 +48,7 @@
             <iconify-icon icon="oui:pages-select"></iconify-icon>
             <span class="hide-menu">Manage Users</span>
           </a>
-        </li>
+        </li> -->
 
         <li class="sidebar-item">
           <a class="sidebar-link {{ $admin_page == 'games' ? 'active' : '' }}" href="{{ url('admin/games') }}">
@@ -89,23 +89,18 @@
 
 
         <li class="sidebar-item">
-          <a class="sidebar-link has-arrow {{ $admin_page == 'blog' || $admin_page == 'blog_categories' ? 'active' : '' }}" href="javascript:void(0)" aria-expanded="false">
+          <a class="sidebar-link has-arrow {{ $admin_page == 'tournament' || $admin_page == 'blog_categories' ? 'active' : '' }}" href="javascript:void(0)" aria-expanded="false">
             <iconify-icon icon="solar:widget-4-line-duotone"></iconify-icon>
-            <span class="hide-menu">Blog</span>
+            <span class="hide-menu">Tournaments</span>
           </a>
-          <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'blog' || $admin_page == 'blog_categories' ? 'in' : '' }}">
+          <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'tournament' || $admin_page == 'blog_categories' ? 'in' : '' }}">
             <li class="sidebar-item">
-              <a class="sidebar-link {{ $admin_page == 'blog' ? 'active' : '' }}" href="{{ url('admin/blog') }}">
-                <span class="icon-small"></span>Blog
+              <a class="sidebar-link {{ $admin_page == 'tournament' ? 'active' : '' }}" href="{{ url('admin/tournament') }}">
+                <span class="icon-small"></span>Tournament
                 Posts
               </a>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link {{ $admin_page == 'blog_categories' ? 'active' : '' }}" href="{{ url('admin/blog_categories') }}">
-                <span class="icon-small"></span>Blog
-                Categories
-              </a>
-            </li>
+           
           </ul>
         </li>
 
