@@ -50,13 +50,6 @@
           </a>
         </li> -->
 
-        <li class="sidebar-item">
-          <a class="sidebar-link {{ $admin_page == 'games' ? 'active' : '' }}" href="{{ url('admin/games') }}">
-            <iconify-icon icon="mdi:shopping-outline"></iconify-icon>
-            Manage Games 
-
-          </a>
-        </li>
 
 
 
@@ -102,6 +95,46 @@
             </li>
            
           </ul>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link has-arrow {{ $admin_page == 'course' || $admin_page == 'blog_categories' ? 'active' : '' }}" href="javascript:void(0)" aria-expanded="false">
+            <iconify-icon icon="solar:widget-4-line-duotone"></iconify-icon>
+            <span class="hide-menu">Courses</span>
+          </a>
+          <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'course' || $admin_page == 'blog_categories' ? 'in' : '' }}">
+            <li class="sidebar-item">
+              <a class="sidebar-link {{ $admin_page == 'course' ? 'active' : '' }}" href="{{ url('admin/course') }}">
+                <span class="icon-small"></span>Courses 
+                Post
+              </a>
+            </li>
+           
+          </ul>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link {{ $admin_page == 'team' ? 'active' : '' }}" href="{{ url('admin/team') }}" aria-expanded="false">
+            <iconify-icon icon="jam:users"></iconify-icon>
+            <span class="hide-menu">Team</span>
+          </a>
+        </li>
+
+        
+        <li class="sidebar-item">
+          <a class="sidebar-link {{ $admin_page == 'gallery' ? 'active' : '' }}" href="{{ url('admin/gallery') }}">
+            <iconify-icon icon="mdi:image"></iconify-icon>
+            Our Guesst Gallery
+
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link {{ $admin_page == 'sponsership' ? 'active' : '' }}" href="{{ url('admin/sponsership') }}">
+            <iconify-icon icon="mdi:shopping-outline"></iconify-icon>
+            Sponsership
+
+          </a>
         </li>
 
         <li class="nav-small-cap">

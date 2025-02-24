@@ -5,31 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Games_model extends Model
+class Team extends Model
 {
     use HasFactory;
-    protected $table = 'games';
+    protected $table = 'team';
     protected $fillable = [
         'title',
-        'detail',
-        'image',
-        'heading_1',
-        'block_1',
-        'heading_2',
-        'block_2',
-
+        
         'meta_title',
         'meta_description',
         'meta_keywords',
+        
 
-
+        'detail',
+        'image',
         'status',
+        'featured',
         'slug',
     ];
-
-
-    public function levels()
-    {
-        return $this->hasMany(Levels_model::class);
-    }
 }

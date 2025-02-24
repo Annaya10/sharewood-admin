@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-use App\Models\Categories_model;
+use App\Models\Sitecontent;
 
 use App\Models\Markers_model;
 use App\Models\Center_categories_model;
@@ -58,20 +58,9 @@ class ContentPages extends Controller
 
     public function home_page(Request $request)
     {
-        $token = $request->input('token', null);
-        $member = $this->authenticate_verify_token($token);
-
-        // Set dynamic data
-        $this->data['sitecontent'] = get_page('home');
-        $this->data['page_title'] = $this->data['sitecontent']['page_title'];
-
-        $this->data['products'] = products_model::orderBy('id', 'asc')->where('status', 1)->limit(3)->get();
-
-        $this->data['pageView'] = 'pages.index';
-        $this->data['footer'] = true;
-
-
-        return view('includes.site-master', $this->data);
+   
+        $this->data['sitecontent'] = Sitecontent::where('ckey','home')->first();
+        exit(json_encode($this->data));
     }
 
     public function about_page(Request $request)

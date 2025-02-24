@@ -7,7 +7,7 @@
 @endsection
 @section('page_content')
 @if (request()->segment(3) == 'edit' || request()->segment(3) == 'add')
-{!!breadcrumb('Add/Update Tournament Post')!!}
+{!!breadcrumb('Add/Update Team')!!}
 <form class="form theme-form" method="post" action="" enctype="multipart/form-data"
   id="saveForm">
   @csrf
@@ -21,7 +21,7 @@
               <h4 class="card-title">Change Image</h4>
               <div class="text-center">
                 <div class="file_choose_icon">
-                  <img src="{{ get_site_image_src('tournament', !empty($row) ? $row->image : '') }}" alt="matdash-img" class="img-fluid" width="120" height="120">
+                  <img src="{{ get_site_image_src('team', !empty($row) ? $row->image : '') }}" alt="matdash-img" class="img-fluid" width="120" height="120">
                 </div>
                 <input class="form-control uploadFile" name="image" type="file"
                   data-bs-original-title="" title="">
@@ -35,28 +35,17 @@
             <div class="card-body p-4">
               <h4 class="card-title">Post Block</h4>
               <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
+                <label for="title" class="form-label">Name</label>
                 <input type="text" class="form-control" name="title" value="{{!empty($row->title) ? $row->title : ""}}">
               </div>
               
               <div class="mb-3">
-                <label for="blog_date" class="form-label">Blog Date</label>
-                <input type="date" class="form-control" name="blog_date"
-                  value="{{ !empty($row->blog_date) ? \Carbon\Carbon::parse($row->blog_date)->format('Y-m-d') : '' }}">
+                <label for="content" class="form-label">Content</label>
+                <input type="text" class="form-control" name="content"
+                  value="{{ !empty($row->content) ? $row->content : '' }}">
               </div>
 
-              <div class="mb-3">
-                <label for="s_time" class="form-label">Start Time</label>
-                <input type="time" class="form-control" name="s_time"
-                  value="{{ !empty($row->s_time) ? $row->s_time : '' }}">
-              </div>
-
-              <div class="mb-3">
-                <label for="e_time" class="form-label">End Time</label>
-                <input type="time" class="form-control" name="e_time"
-                  value="{{ !empty($row->e_time) ? $row->e_time : '' }}">
-              </div>
-
+             
               
 
               
@@ -121,7 +110,7 @@
 </form>
 
 @else
-{!!breadcrumb('Tournament Posts',url('admin/tournament/add/'))!!}
+{!!breadcrumb('Team',url('admin/team/add/'))!!}
 <div class="card">
   <div class="card-body">
     <div class="row">
@@ -145,7 +134,7 @@
               <td>{{ $key + 1 }}</td>
               <td>
                 <div class="d-flex align-items-center gap-6 crud_thumbnail_icon">
-                  <img src="{{ get_site_image_src('tournament', !empty($row->image) ? $row->image : '') }}" width="45" class="rounded-circle" />
+                  <img src="{{ get_site_image_src('team', !empty($row->image) ? $row->image : '') }}" width="45" class="rounded-circle" />
                   <h6 class="mb-0"> {{ $row->title }}</h6>
                 </div>
 
@@ -159,12 +148,12 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li>
-                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/tournament/edit/' . $row->id) }}">
+                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/team/edit/' . $row->id) }}">
                         <i class="fs-4 ti ti-edit"></i>Edit
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/tournament/delete/' . $row->id) }}" onclick="return confirm('Are you sure?');">
+                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/team/delete/' . $row->id) }}" onclick="return confirm('Are you sure?');">
                         <i class="fs-4 ti ti-trash"></i>Delete
                       </a>
                     </li>

@@ -7,7 +7,7 @@
 @endsection
 @section('page_content')
 @if (request()->segment(3) == 'edit' || request()->segment(3) == 'add')
-{!!breadcrumb('Add/Update Tournament Post')!!}
+{!!breadcrumb('Add/Update Course Post')!!}
 <form class="form theme-form" method="post" action="" enctype="multipart/form-data"
   id="saveForm">
   @csrf
@@ -21,7 +21,7 @@
               <h4 class="card-title">Change Image</h4>
               <div class="text-center">
                 <div class="file_choose_icon">
-                  <img src="{{ get_site_image_src('tournament', !empty($row) ? $row->image : '') }}" alt="matdash-img" class="img-fluid" width="120" height="120">
+                  <img src="{{ get_site_image_src('course', !empty($row) ? $row->image : '') }}" alt="matdash-img" class="img-fluid" width="120" height="120">
                 </div>
                 <input class="form-control uploadFile" name="image" type="file"
                   data-bs-original-title="" title="">
@@ -121,7 +121,7 @@
 </form>
 
 @else
-{!!breadcrumb('Tournament Posts',url('admin/tournament/add/'))!!}
+{!!breadcrumb('Course Posts',url('admin/course/add/'))!!}
 <div class="card">
   <div class="card-body">
     <div class="row">
@@ -145,7 +145,7 @@
               <td>{{ $key + 1 }}</td>
               <td>
                 <div class="d-flex align-items-center gap-6 crud_thumbnail_icon">
-                  <img src="{{ get_site_image_src('tournament', !empty($row->image) ? $row->image : '') }}" width="45" class="rounded-circle" />
+                  <img src="{{ get_site_image_src('course', !empty($row->image) ? $row->image : '') }}" width="45" class="rounded-circle" />
                   <h6 class="mb-0"> {{ $row->title }}</h6>
                 </div>
 
@@ -159,12 +159,12 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li>
-                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/tournament/edit/' . $row->id) }}">
+                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/course/edit/' . $row->id) }}">
                         <i class="fs-4 ti ti-edit"></i>Edit
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/tournament/delete/' . $row->id) }}" onclick="return confirm('Are you sure?');">
+                      <a class="dropdown-item d-flex align-items-center gap-3" href="{{ url('admin/course/delete/' . $row->id) }}" onclick="return confirm('Are you sure?');">
                         <i class="fs-4 ti ti-trash"></i>Delete
                       </a>
                     </li>

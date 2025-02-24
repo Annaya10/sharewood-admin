@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tournamnet_model;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class Tournaments extends Controller
+class CourseController extends Controller
 {
     public function index()
     {
         has_access(17);
-        $this->data['rows'] = Tournamnet_model::orderBy('id', 'DESC')->get();
+        $this->data['rows'] = Course::orderBy('id', 'DESC')->get();
         
-        return view('admin.tournament.index', $this->data);
+        return view('admin.course.index', $this->data);
     }
     public function add(Request $request)
     {
@@ -27,9 +27,9 @@ class Tournaments extends Controller
                 $request->validate([
                     'image' => 'mimes:png,jpg,jpeg,svg,gif|max:40000'
                 ]);
-                $image = $request->file('image')->store('public/tournament/');
+                $image = $request->file('image')->store('public/course/');
                 if (!empty(basename($image))) {
-                    generateThumbnail('tournament', basename($image), 'square', 'large');
+                    generateThumbnail('course', basename($image), 'square', 'large');
                     $data['image'] = basename($image);
                 }
             }
@@ -62,8 +62,8 @@ class Tournaments extends Controller
             $data['s_time'] = $input['s_time'];
 
             // pr($data);
-            $id = Tournamnet_model::create($data);
-            return redirect('admin/tournament/')
+            $id = Course::create($data);
+            return redirect('admin/course/')
                 ->with('success', 'Content Updated Successfully');
         }
         $this->data['enable_editor'] = true;
@@ -72,7 +72,7 @@ class Tournaments extends Controller
     public function edit(Request $request, $id)
     {
         has_access(17);
-        $tournament = Tournamnet_model::find($id);
+        $course = Course::find($id);
         $input = $request->all();
         // pr($input);
         if ($input) {
@@ -82,57 +82,57 @@ class Tournaments extends Controller
                 $request->validate([
                     'image' => 'mimes:png,jpg,jpeg,svg,gif|max:40000'
                 ]);
-                $image = $request->file('image')->store('public/tournament/');
+                $image = $request->file('image')->store('public/course/');
                 if (!empty($image)) {
-                    removeImage("tournament/" . $tournament->image);
-                    generateThumbnail('tournament', basename($image), 'square', 'large');
-                    $tournament->image = basename($image);
+                    removeImage("course/" . $course->image);
+                    generateThumbnail('course', basename($image), 'square', 'large');
+                    $course->image = basename($image);
                 }
             }
             if (!empty($input['status'])) {
-                $tournament->status = 1;
+                $course->status = 1;
             } else {
-                $tournament->status = 0;
+                $course->status = 0;
             }
             if (!empty($input['featured'])) {
-                $tournament->featured = 1;
+                $course->featured = 1;
             } else {
-                $tournament->featured = 0;
+                $course->featured = 0;
             }
             if (!empty($input['popular'])) {
-                $tournament->popular = 1;
+                $course->popular = 1;
             } else {
-                $tournament->popular = 0;
+                $course->popular = 0;
             }
-            $tournament->meta_title = $input['meta_title'];
-            $tournament->meta_description = $input['meta_description'];
-            $tournament->meta_keywords = $input['meta_keywords'];
-            // $tournament->tags=$input['tags'];
-            $tournament->title = $input['title'];
-            $tournament->slug = checkSlug(Str::slug($tournament->title, '-'), 'tournaments', $tournament->id);
-            $tournament->detail = $input['detail'];
-            // pr($tournament->category);
-            $tournament->blog_date = $input['blog_date'];
-            $tournament->e_time = $input['e_time'];
-            $tournament->s_time = $input['s_time'];
+            $course->meta_title = $input['meta_title'];
+            $course->meta_description = $input['meta_description'];
+            $course->meta_keywords = $input['meta_keywords'];
+            // $course->tags=$input['tags'];
+            $course->title = $input['title'];
+            $course->slug = checkSlug(Str::slug($course->title, '-'), 'tournaments', $course->id);
+            $course->detail = $input['detail'];
+            // pr($course->category);
+            $course->blog_date = $input['blog_date'];
+            $course->e_time = $input['e_time'];
+            $course->s_time = $input['s_time'];
 
             // pr($input['category']);
-            $tournament->update();
-            return redirect('admin/tournament/edit/' . $request->segment(4))
+            $course->update();
+            return redirect('admin/course/edit/' . $request->segment(4))
                 ->with('success', 'Content Updated Successfully');
         }
-        $this->data['row'] = Tournamnet_model::find($id);
+        $this->data['row'] = Course::find($id);
         $this->data['enable_editor'] = true;
 
-        return view('admin.tournament.index', $this->data);
+        return view('admin.course.index', $this->data);
     }
     public function delete($id)
     {
         has_access(17);
-        $tournament = Tournamnet_model::find($id);
-        removeImage("tournament/" . $tournament->image);
-        $tournament->delete();
-        return redirect('admin/tournament/')
+        $course = Course::find($id);
+        removeImage("course/" . $course->image);
+        $course->delete();
+        return redirect('admin/course/')
             ->with('error', 'Content deleted Successfully');
     }
 }
