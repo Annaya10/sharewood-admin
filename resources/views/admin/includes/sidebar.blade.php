@@ -124,7 +124,7 @@
         <li class="sidebar-item">
           <a class="sidebar-link {{ $admin_page == 'gallery' ? 'active' : '' }}" href="{{ url('admin/gallery') }}">
             <iconify-icon icon="mdi:image"></iconify-icon>
-            Our Guesst Gallery
+            Our Guest Gallery
 
           </a>
         </li>

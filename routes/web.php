@@ -122,6 +122,7 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/pages/course-guide-scorecard', [Pages::class, 'course_guide_scorecard']);
     Route::match(['GET', 'POST'], '/admin/pages/corporate-events', [Pages::class, 'corporate_events']);
     Route::match(['GET', 'POST'], '/admin/pages/tournaments', [Pages::class, 'tournaments']);
+    Route::match(['GET', 'POST'], '/admin/pages/wedding-at-sherwood-golf', [Pages::class, 'wedding_at_sherwood_golf']);
 
     /*==============================Gallerys =====================================*/
     Route::get('/admin/gallery', [Gallery::class, 'index']);
