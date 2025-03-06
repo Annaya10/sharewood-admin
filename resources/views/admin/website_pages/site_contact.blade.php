@@ -80,9 +80,11 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col">
-                            <div class="mb-3">
-                                <label class="form-label" for="banner_text">Text</label>
-                                <textarea id="banner_text" name="banner_text" rows="4" class="editor">{{ !empty($sitecontent['banner_text']) ? $sitecontent['banner_text'] : "" }}</textarea>
+                        <div class="mb-3">
+                            <label class="form-label" for="overview_heading">Heading</label>
+                                <input class="form-control" id="overview_heading" type="text"
+                                    name="overview_heading" placeholder=""
+                                    value="{{ !empty($sitecontent['overview_heading']) ? $sitecontent['overview_heading'] : '' }}">
                             </div>
                         </div>
                     </div>
@@ -95,10 +97,22 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h5>Section 2</h5>
+            <h5>Section 1</h5>
         </div>
         <div class="card-body">
             <div class="row">
+            <div class="col-md-12">
+                    <div class="row">
+                        <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label" for="sec1_heading">Heading</label>
+                                <input class="form-control" id="sec1_heading" type="text"
+                                    name="sec1_heading" placeholder=""
+                                    value="{{ !empty($sitecontent['sec1_heading']) ? $sitecontent['sec1_heading'] : '' }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col">
@@ -118,12 +132,14 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-md-12">
+            <div class="col-md-12">
                     <div class="row">
                         <div class="col">
-                            <div class="mb-3">
-                                <label class="form-label" for="section3_text">Text</label>
-                                <textarea id="section3_text" name="section3_text" rows="4" class=" editor">{{ !empty($sitecontent['section3_text']) ? $sitecontent['section3_text'] : "" }}</textarea>
+                        <div class="mb-3">
+                            <label class="form-label" for="sec2_heading">Heading</label>
+                                <input class="form-control" id="sec2_heading" type="text"
+                                    name="sec2_heading" placeholder=""
+                                    value="{{ !empty($sitecontent['sec2_heading']) ? $sitecontent['sec2_heading'] : '' }}">
                             </div>
                         </div>
                     </div>

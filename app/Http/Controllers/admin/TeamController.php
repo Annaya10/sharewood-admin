@@ -94,11 +94,7 @@ class TeamController extends Controller
             } else {
                 $team->featured = 0;
             }
-            if (!empty($input['popular'])) {
-                $team->popular = 1;
-            } else {
-                $team->popular = 0;
-            }
+           
             $team->meta_title = $input['meta_title'];
             $team->meta_description = $input['meta_description'];
             $team->meta_keywords = $input['meta_keywords'];

@@ -22,5 +22,6 @@ class Team extends Model
         'status',
         'featured',
         'slug',
+        'content',
     ];
 }

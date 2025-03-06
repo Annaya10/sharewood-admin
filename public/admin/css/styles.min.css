@@ -20412,7 +20412,7 @@ ul {
 }
 
 .logo-img {
-    height: 40px;
+    height: 100%;
 }
 
 .logo-img img {
@@ -20581,6 +20581,9 @@ ul {
     border-bottom: 1px solid #F5AEC4;
 }
 
+#sidebarnav{
+    margin-top: 10px;
+}
 .owl-dots {
     display: none;
 }
