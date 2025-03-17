@@ -55,7 +55,7 @@
                         </tr>
                         <tr>
                             <td>5</td>
-                            <td width="65%">Courses</td>
+                            <td width="65%">Course Overview</td>
                             <td>
                                 <a href="{{ url('admin/pages/courses') }}" class="btn btn-primary active">Edit
                                     Page</a>
@@ -64,7 +64,7 @@
 
                         <tr>
                             <td>6</td>
-                            <td width="65%">Rates</td>
+                            <td width="65%">Green Fee Rates</td>
                             <td>
                                 <a href="{{ url('admin/pages/rates') }}" class="btn btn-primary active">Edit
                                     Page</a>
@@ -81,17 +81,17 @@
                         </tr>
 
                         
-                        <tr>
+                        <!-- <tr>
                             <td>8</td>
                             <td width="65%">Corporate Events</td>
                             <td>
                                 <a href="{{ url('admin/pages/corporate-events') }}" class="btn btn-primary active">Edit
                                     Page</a>
                             </td>
-                        </tr>
+                        </tr> -->
 
                         <tr>
-                            <td>9</td>
+                            <td>8</td>
                             <td width="65%">Tournaments</td>
                             <td>
                                 <a href="{{ url('admin/pages/tournaments') }}" class="btn btn-primary active">Edit
@@ -100,8 +100,8 @@
                         </tr>
 
                         <tr>
-                            <td>10</td>
-                            <td width="65%">Wedding at Sherwood Golf</td>
+                            <td>9</td>
+                            <td width="65%">Weddings</td>
                             <td>
                                 <a href="{{ url('admin/pages/wedding-at-sherwood-golf') }}" class="btn btn-primary active">Edit
                                     Page</a>
@@ -109,7 +109,7 @@
                         </tr>
 
                         
-                        <tr>
+                        <!-- <tr>
                             <td>11</td>
                             <td width="65%">Blog</td>
                             <td>
@@ -132,9 +132,9 @@
                                 <a href="{{ url('admin/pages/privacy_policy') }}" class="btn btn-primary active">Edit
                                     Page</a>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
-                            <td>14</td>
+                            <td>10</td>
                             <td width="65%">Terms & Conditions</td>
                             <td>
                                 <a href="{{ url('admin/pages/terms_conditions') }}" class="btn btn-primary active">Edit

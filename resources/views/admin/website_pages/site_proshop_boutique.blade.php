@@ -397,12 +397,7 @@
                                     value="{{ !empty($sitecontent['section5_heading']) ? $sitecontent['section5_heading'] : '' }}">
                             </div>
                         </div>
-                        <div class="col-md-12">
-                        <div class="mb-3">
-                                <label class="form-label" for="section5_text">Text</label>
-                                <textarea id="section5_text" name="section5_text" rows="4" class=" form-control">{{ !empty($sitecontent['section5_text']) ? $sitecontent['section5_text'] : "" }}</textarea>
-                            </div>
-                        </div>
+                        
                         
                     </div>
                 </div>

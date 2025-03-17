@@ -568,6 +568,41 @@ id="saveForm">
 
 
 </div>
+
+<div class="card">
+
+    <div class="card-header">
+        <h5>Testimonials Section</h5>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+            <div class="col-md-5">
+                <div class="card w-100 border position-relative overflow-hidden">
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                       <div class="file_choose_icon">
+                          <img src="{{ get_site_image_src('images', $sitecontent['image7']) }}" alt="matdash-img" class="img-fluid " >
+                       </div>
+                        <p class="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                        <input class="form-control uploadFile" name="image7" type="file"
+                            data-bs-original-title="" title="">
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            
+
+        </div>
+
+
+  </div>
+
+  
+
+
+</div>
 <div class="card">
     <div class="card-header">
         <h5>Section 6</h5>
