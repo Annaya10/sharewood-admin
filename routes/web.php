@@ -14,6 +14,8 @@ use App\Http\Controllers\admin\TeamController;
 
 
 use App\Http\Controllers\admin\Tournaments;
+use App\Http\Controllers\admin\Packages;
+use App\Http\Controllers\admin\Packages_categories_model;
 use App\Http\Controllers\admin\Sponsership;
 use App\Http\Controllers\admin\Member;
 
@@ -111,18 +113,22 @@ Route::middleware(['is_admin'])->group(function () {
     /*==============================Website Textual Pages =====================================*/
     Route::match(['GET', 'POST'], '/admin/pages/home', [Pages::class, 'home']);
     Route::match(['GET', 'POST'], '/admin/pages/about', [Pages::class, 'about']);
-    Route::match(['GET', 'POST'], '/admin/pages/blog', [Pages::class, 'blog']);
+    Route::match(['GET', 'POST'], '/admin/pages/memberships-overview', [Pages::class, 'memberships_overview']);
     Route::match(['GET', 'POST'], '/admin/pages/courses', [Pages::class, 'courses']);
     Route::match(['GET', 'POST'], '/admin/pages/rates', [Pages::class, 'rates']);
-    Route::match(['GET', 'POST'], '/admin/pages/contact', [Pages::class, 'contact']);
+    Route::match(['GET', 'POST'], '/admin/pages/booking-requests', [Pages::class, 'booking_requests']);
     Route::match(['GET', 'POST'], '/admin/pages/privacy_policy', [Pages::class, 'privacy_policy']);
     Route::match(['GET', 'POST'], '/admin/pages/terms_conditions', [Pages::class, 'terms_conditions']);
     Route::match(['GET', 'POST'], '/admin/pages/proshop-boutique', [Pages::class, 'proshop_boutique']);
     Route::match(['GET', 'POST'], '/admin/pages/hospitality-group-commitments', [Pages::class, 'hospitality_group_commitments']);
     Route::match(['GET', 'POST'], '/admin/pages/course-guide-scorecard', [Pages::class, 'course_guide_scorecard']);
-    Route::match(['GET', 'POST'], '/admin/pages/corporate-events', [Pages::class, 'corporate_events']);
+    Route::match(['GET', 'POST'], '/admin/pages/corporate-retreats-meetings', [Pages::class, 'corporate_retreats_meetings']);
     Route::match(['GET', 'POST'], '/admin/pages/tournaments', [Pages::class, 'tournaments']);
     Route::match(['GET', 'POST'], '/admin/pages/wedding-at-sherwood-golf', [Pages::class, 'wedding_at_sherwood_golf']);
+    Route::match(['GET', 'POST'], '/admin/pages/memberships-application', [Pages::class, 'memberships_application']);
+    Route::match(['GET', 'POST'], '/admin/pages/accommodations', [Pages::class, 'accommodations']);
+    Route::match(['GET', 'POST'], '/admin/pages/stay-play-packages', [Pages::class, 'stay_play_packages']);
+    Route::match(['GET', 'POST'], '/admin/pages/reviews', [Pages::class, 'reviews']);
 
     /*==============================Gallerys =====================================*/
     Route::get('/admin/gallery', [Gallery::class, 'index']);
@@ -173,6 +179,20 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/tournament/add', [Tournaments::class, 'add']);
     Route::match(['GET', 'POST'], '/admin/tournament/edit/{id}', [Tournaments::class, 'edit']);
     Route::match(['GET', 'POST'], '/admin/tournament/delete/{id}', [Tournaments::class, 'delete']);
+
+
+    /*==============================Packages  Module =====================================*/
+    Route::get('/admin/packages', [Packages::class, 'index']);
+    Route::match(['GET', 'POST'], '/admin/packages/add', [Packages::class, 'add']);
+    Route::match(['GET', 'POST'], '/admin/packages/edit/{id}', [Packages::class, 'edit']);
+    Route::match(['GET', 'POST'], '/admin/packages/delete/{id}', [Packages::class, 'delete']);
+
+       /*==============================Packages Categories  Module =====================================*/
+
+       Route::get('/admin/package_categories', [Packages_categories_model::class, 'index']);
+       Route::match(['GET', 'POST'], '/admin/package_categories/add', [Packages_categories_model::class, 'add']);
+       Route::match(['GET', 'POST'], '/admin/package_categories/edit/{id}', [Packages_categories_model::class, 'edit']);
+       Route::match(['GET', 'POST'], '/admin/package_categories/delete/{id}', [Packages_categories_model::class, 'delete']);
 
       /*==============================Courses  Module =====================================*/
 

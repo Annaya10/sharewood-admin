@@ -5,7 +5,7 @@ use App\Http\Controllers\Ajax;
 use App\Http\Controllers\Account;
 use App\Http\Controllers\Requests;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContentPages;
+use App\Http\Controllers\Api\ContentPages;
 use App\Http\Controllers\User_auth;
 
 use App\Http\Controllers\Requests_chat;
@@ -40,18 +40,37 @@ Route::get('/get-states/{country_id}', [App\Http\Controllers\Ajax::class, 'get_s
 
 
 /*==============================API GET Routes =====================================*/
-Route::match(['GET', 'POST'], '/site-settings', [ContentPages::class, 'website_settings']);
-Route::match(['GET', 'POST'], '/member-settings', [ContentPages::class, 'member_settings']);
+
 Route::match(['GET', 'POST'], '/home-page', [ContentPages::class, 'home_page']);
-Route::match(['GET', 'POST'], '/services-page', [ContentPages::class, 'services_page']);
 Route::match(['GET', 'POST'], '/about-page', [ContentPages::class, 'about_page']);
-Route::match(['GET', 'POST'], '/contact-page', [ContentPages::class, 'contact_page']);
-Route::match(['GET', 'POST'], '/privacy-policy-page', [ContentPages::class, 'privacy_policy_page']);
-Route::match(['GET', 'POST'], '/terms-conditions-page', [ContentPages::class, 'terms_conditions_page']);
-Route::match(['GET', 'POST'], '/signup-page', [ContentPages::class, 'signup_page']);
-Route::match(['GET', 'POST'], '/login-page', [ContentPages::class, 'login_page']);
-Route::match(['GET', 'POST'], '/forget-password-page', [ContentPages::class, 'forgot_page']);
-Route::match(['GET', 'POST'], '/reset-password-page', [ContentPages::class, 'reset_page']);
+Route::match(['GET', 'POST'], '/memberships-overview', [ContentPages::class, 'memberships_overview']);
+Route::match(['GET', 'POST'], '/courses', [ContentPages::class, 'courses']);
+Route::match(['GET', 'POST'], '/rates', [ContentPages::class, 'rates']);
+Route::match(['GET', 'POST'], '/booking-requests', [ContentPages::class, 'booking_requests']);
+Route::match(['GET', 'POST'], '/privacy-policy', [ContentPages::class, 'privacy_policy']);
+Route::match(['GET', 'POST'], '/terms-conditions', [ContentPages::class, 'terms_conditions']);
+Route::match(['GET', 'POST'], '/proshop-boutique', [ContentPages::class, 'proshop_boutique']);
+Route::match(['GET', 'POST'], '/hospitality-group-commitments', [ContentPages::class, 'hospitality_group_commitments']);
+Route::match(['GET', 'POST'], '/course-guide-scorecard', [ContentPages::class, 'course_guide_scorecard']);
+Route::match(['GET', 'POST'], '/corporate-retreats-meetings', [ContentPages::class, 'corporate_retreats_meetings']);
+Route::match(['GET', 'POST'], '/tournaments', [ContentPages::class, 'tournaments']);
+Route::match(['GET', 'POST'], '/wedding-at-sherwood-golf', [ContentPages::class, 'wedding_at_sherwood_golf']);
+Route::match(['GET', 'POST'], '/memberships-application', [ContentPages::class, 'memberships_application']);
+Route::match(['GET', 'POST'], '/accommodations', [ContentPages::class, 'accommodations']);
+Route::match(['GET', 'POST'], '/stay-play-packages', [ContentPages::class, 'stay_play_packages']);
+Route::match(['GET', 'POST'], '/reviews', [ContentPages::class, 'reviews']);
+// Route::match(['GET', 'POST'], '/site-settings', [ContentPages::class, 'website_settings']);
+// Route::match(['GET', 'POST'], '/member-settings', [ContentPages::class, 'member_settings']);
+// Route::match(['GET', 'POST'], '/home-page', [ContentPages::class, 'home_page']);
+// Route::match(['GET', 'POST'], '/services-page', [ContentPages::class, 'services_page']);
+// Route::match(['GET', 'POST'], '/about-page', [ContentPages::class, 'about_page']);
+// Route::match(['GET', 'POST'], '/contact-page', [ContentPages::class, 'contact_page']);
+// Route::match(['GET', 'POST'], '/privacy-policy-page', [ContentPages::class, 'privacy_policy_page']);
+// Route::match(['GET', 'POST'], '/terms-conditions-page', [ContentPages::class, 'terms_conditions_page']);
+// Route::match(['GET', 'POST'], '/signup-page', [ContentPages::class, 'signup_page']);
+// Route::match(['GET', 'POST'], '/login-page', [ContentPages::class, 'login_page']);
+// Route::match(['GET', 'POST'], '/forget-password-page', [ContentPages::class, 'forgot_page']);
+// Route::match(['GET', 'POST'], '/reset-password-page', [ContentPages::class, 'reset_page']);
 
 
 /*==============================Member Routes =====================================*/

@@ -55,28 +55,28 @@
 
 
 
-        <!-- <li class="sidebar-item">
-          <a class="sidebar-link has-arrow {{ $admin_page == 'markers' || $admin_page == 'center_categories' ? 'active' : '' }}" href="javascript:void(0)" aria-expanded="false">
+        <li class="sidebar-item">
+          <a class="sidebar-link has-arrow {{ $admin_page == 'packages' || $admin_page == 'package_categories' ? 'active' : '' }}" href="javascript:void(0)" aria-expanded="false">
             <iconify-icon icon="mdi:location"></iconify-icon>
-            <span class="hide-menu"> Global Locations</span>
+            <span class="hide-menu">Packages</span>
           </a>
-          <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'markers' || $admin_page == 'center_categories' ? 'in' : '' }}">
+          <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'packages' || $admin_page == 'package_categories' ? 'in' : '' }}">
             <li class="sidebar-item">
-              <a class="sidebar-link {{ $admin_page == 'markers' ? 'active' : '' }}" href="{{ url('admin/markers') }}">
+              <a class="sidebar-link {{ $admin_page == 'packages' ? 'active' : '' }}" href="{{ url('admin/packages') }}">
                 <iconify-icon icon="mdi:location"></iconify-icon>
-                Locations
+                All Packages 
 
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link {{ $admin_page == 'center_categories' ? 'active' : '' }}" href="{{ url('admin/center_categories') }}">
+              <a class="sidebar-link {{ $admin_page == 'package_categories ' ? 'active' : '' }}" href="{{ url('admin/package_categories') }}">
                 <iconify-icon icon="mdi:office-building"></iconify-icon>
 
-                Center Categories
+                 Categories
               </a>
             </li>
           </ul>
-        </li> -->
+        </li>
 
 
 

@@ -81,17 +81,17 @@
                         </tr>
 
                         
-                        <!-- <tr>
-                            <td>8</td>
-                            <td width="65%">Corporate Events</td>
-                            <td>
-                                <a href="{{ url('admin/pages/corporate-events') }}" class="btn btn-primary active">Edit
-                                    Page</a>
-                            </td>
-                        </tr> -->
-
                         <tr>
                             <td>8</td>
+                            <td width="65%">Corporate Retreats & Meetings</td>
+                            <td>
+                                <a href="{{ url('admin/pages/corporate-retreats-meetings') }}" class="btn btn-primary active">Edit
+                                    Page</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>9</td>
                             <td width="65%">Tournaments</td>
                             <td>
                                 <a href="{{ url('admin/pages/tournaments') }}" class="btn btn-primary active">Edit
@@ -100,7 +100,7 @@
                         </tr>
 
                         <tr>
-                            <td>9</td>
+                            <td>10</td>
                             <td width="65%">Weddings</td>
                             <td>
                                 <a href="{{ url('admin/pages/wedding-at-sherwood-golf') }}" class="btn btn-primary active">Edit
@@ -109,38 +109,70 @@
                         </tr>
 
                         
-                        <!-- <tr>
+                        <tr>
                             <td>11</td>
-                            <td width="65%">Blog</td>
+                            <td width="65%">Memberships Overview</td>
                             <td>
-                                <a href="{{ url('admin/pages/blog') }}" class="btn btn-primary active">Edit
+                                <a href="{{ url('admin/pages/memberships-overview') }}" class="btn btn-primary active">Edit
                                     Page</a>
                             </td>
                         </tr>
+
+                         
                         <tr>
                             <td>12</td>
-                            <td width="65%">Contact Us</td>
+                            <td width="65%">Memberships Application</td>
                             <td>
-                                <a href="{{ url('admin/pages/contact') }}" class="btn btn-primary active">Edit
+                                <a href="{{ url('admin/pages/memberships-application') }}" class="btn btn-primary active">Edit
+                                    Page</a>
+                            </td>
+                        </tr>
+
+                    
+
+                        <tr>
+                            <td>13</td>
+                            <td width="65%">Accommodations</td>
+                            <td>
+                                <a href="{{ url('admin/pages/accommodations') }}" class="btn btn-primary active">Edit
+                                    Page</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>14</td>
+                            <td width="65%">Stay & Play Packages and Specials</td>
+                            <td>
+                                <a href="{{ url('admin/pages/stay-play-packages') }}" class="btn btn-primary active">Edit
                                     Page</a>
                             </td>
                         </tr>
                         <tr>
-                            <td>13</td>
+                            <td>15</td>
+                            <td width="65%">Booking Requests</td>
+                            <td>
+                                <a href="{{ url('admin/pages/booking-requests') }}" class="btn btn-primary active">Edit
+                                    Page</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>16</td>
+                            <td width="65%">Reviews</td>
+                            <td>
+                                <a href="{{ url('admin/pages/reviews') }}" class="btn btn-primary active">Edit
+                                    Page</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
                             <td width="65%">Privacy Policy</td>
                             <td>
                                 <a href="{{ url('admin/pages/privacy_policy') }}" class="btn btn-primary active">Edit
                                     Page</a>
                             </td>
-                        </tr> -->
-                        <tr>
-                            <td>10</td>
-                            <td width="65%">Terms & Conditions</td>
-                            <td>
-                                <a href="{{ url('admin/pages/terms_conditions') }}" class="btn btn-primary active">Edit
-                                    Page</a>
-                            </td>
                         </tr>
+                       
                         
                     </tbody>
                 </table>
