@@ -21,7 +21,7 @@ class Pages extends Controller
             $content_row = unserialize($page->code);
             if(!is_array($content_row))
                 $content_row = array();
-            for ($i = 1; $i <= 9; $i++) {
+            for ($i = 1; $i <= 30; $i++) {
                 if ($request->hasFile('image'.$i)) {
 
                     $request->validate([

@@ -60,22 +60,22 @@
             <iconify-icon icon="mdi:location"></iconify-icon>
             <span class="hide-menu">Packages</span>
           </a>
+
           <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'packages' || $admin_page == 'package_categories' ? 'in' : '' }}">
             <li class="sidebar-item">
               <a class="sidebar-link {{ $admin_page == 'packages' ? 'active' : '' }}" href="{{ url('admin/packages') }}">
-                <iconify-icon icon="mdi:location"></iconify-icon>
-                All Packages 
-
+                <span class="icon-small"></span>All Packages 
               </a>
             </li>
+
             <li class="sidebar-item">
-              <a class="sidebar-link {{ $admin_page == 'package_categories ' ? 'active' : '' }}" href="{{ url('admin/package_categories') }}">
-                <iconify-icon icon="mdi:office-building"></iconify-icon>
-
-                 Categories
+              <a class="sidebar-link {{ $admin_page == 'package_categories' ? 'active' : '' }}" href="{{ url('admin/package_categories') }}">
+                <span class="icon-small"></span>Categories
               </a>
             </li>
+           
           </ul>
+      
         </li>
 
 
@@ -117,6 +117,13 @@
           <a class="sidebar-link {{ $admin_page == 'team' ? 'active' : '' }}" href="{{ url('admin/team') }}" aria-expanded="false">
             <iconify-icon icon="jam:users"></iconify-icon>
             <span class="hide-menu">Team</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link {{ $admin_page == 'testimonials' ? 'active' : '' }}" href="{{ url('admin/testimonials') }}" aria-expanded="false">
+            <iconify-icon icon="jam:users"></iconify-icon>
+            <span class="hide-menu">Testimonials</span>
           </a>
         </li>
 

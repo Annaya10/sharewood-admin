@@ -38,24 +38,26 @@
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" name="title" value="{{!empty($row->title) ? $row->title : ""}}">
               </div>
+
+              <div class="mb-3">
+                <label for="name" class="form-label">Category</label>
+                <select name="category" class="form-control" required>
+                  <option value="">Select Category</option>
+                  @foreach ($categories as $category)
+                  <option value="{{ $category->id }}"
+                    {{ !empty($row) ? ($row->category == $category->id ? 'selected' : '') : '' }}>
+                    {{ !empty($category->name) ? $category->name : '' }}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="detail" class="form-label">Short Description</label>
+                <textarea class="form-control" name="short_detail">{{ !empty($row) ? $row->short_detail : '' }}</textarea>
+              </div>
               
-              <div class="mb-3">
-                <label for="blog_date" class="form-label">Blog Date</label>
-                <input type="date" class="form-control" name="blog_date"
-                  value="{{ !empty($row->blog_date) ? \Carbon\Carbon::parse($row->blog_date)->format('Y-m-d') : '' }}">
-              </div>
-
-              <div class="mb-3">
-                <label for="s_time" class="form-label">Start Time</label>
-                <input type="time" class="form-control" name="s_time"
-                  value="{{ !empty($row->s_time) ? $row->s_time : '' }}">
-              </div>
-
-              <div class="mb-3">
-                <label for="e_time" class="form-label">End Time</label>
-                <input type="time" class="form-control" name="e_time"
-                  value="{{ !empty($row->e_time) ? $row->e_time : '' }}">
-              </div>
+          
 
               
 
@@ -86,27 +88,7 @@
                 <label for="detail" class="form-label">Text</label>
                 <textarea class="editor" name="detail">{{ !empty($row) ? $row->detail : '' }}</textarea>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12 d-flex align-items-stretch">
-          <div class="card w-100 border position-relative overflow-hidden">
-            <div class="card-body p-4">
-              <h4 class="card-title">Meta Information Block</h4>
-              <div class="mb-3">
-                <label for="detail" class="form-label">Meta Title</label>
-                <input class="form-control" id="meta_title" type="text" name="meta_title"
-                  placeholder=""
-                  value="{{ !empty($row->meta_title) ? $row->meta_title : '' }}">
-              </div>
-              <div class="mb-3">
-                <label for="detail" class="form-label">Meta Description</label>
-                <textarea class="form-control" id="meta_description" rows="3" name="meta_description">{{ !empty($row->meta_description) ? $row->meta_description : '' }}</textarea>
-              </div>
-              <div class="mb-3">
-                <label for="detail" class="form-label">Meta Keywords</label>
-                <textarea class="form-control" id="meta_keywords" rows="3" name="meta_keywords">{{ !empty($row->meta_keywords) ? $row->meta_keywords : '' }}</textarea>
-              </div>
+
               <div class="col-12">
                 <div class="d-flex align-items-center justify-content-end mt-4 gap-6">
                   <button class="btn btn-primary" type="submit">Update</button>
@@ -115,6 +97,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -145,7 +128,7 @@
               <td>{{ $key + 1 }}</td>
               <td>
                 <div class="d-flex align-items-center gap-6 crud_thumbnail_icon">
-                  <img src="{{ get_site_image_src('tournament', !empty($row->image) ? $row->image : '') }}" width="45" class="rounded-circle" />
+                  <img src="{{ get_site_image_src('packages', !empty($row->image) ? $row->image : '') }}" width="45" class="rounded-circle" />
                   <h6 class="mb-0"> {{ $row->title }}</h6>
                 </div>
 

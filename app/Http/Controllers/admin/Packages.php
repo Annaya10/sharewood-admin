@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Packages_model;
+use App\Models\Packages_categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 class Packages extends Controller
@@ -48,17 +49,16 @@ class Packages extends Controller
             } else {
                 $data['popular'] = 0;
             }
-            $data['meta_title'] = $input['meta_title'];
-            $data['meta_description'] = $input['meta_description'];
-            $data['meta_keywords'] = $input['meta_keywords'];
+            // $data['meta_title'] = $input['meta_title'];
+            // $data['meta_description'] = $input['meta_description'];
+            // $data['meta_keywords'] = $input['meta_keywords'];
             // $data['tags']=$input['tags'];
             $data['title'] = $input['title'];
-            $data['slug'] = checkSlug(Str::slug($data['title'], '-'), 'packagess');
+            $data['slug'] = checkSlug(Str::slug($data['title'], '-'), 'packages');
             $data['detail'] = $input['detail'];
 
-            $data['blog_date'] = $input['blog_date'];
-            $data['e_time'] = $input['e_time'];
-            $data['s_time'] = $input['s_time'];
+            $data['short_detail'] = $input['short_detail'];
+            $data['category'] = $input['category'];
 
             // pr($data);
             $id = Packages_model::create($data);
@@ -66,6 +66,7 @@ class Packages extends Controller
                 ->with('success', 'Content Updated Successfully');
         }
         $this->data['enable_editor'] = true;
+        $this->data['categories'] = Packages_categories::where('status', 1)->get();
         return view('admin.packages.index', $this->data);
     }
     public function edit(Request $request, $id)
@@ -103,17 +104,16 @@ class Packages extends Controller
             } else {
                 $packages->popular = 0;
             }
-            $packages->meta_title = $input['meta_title'];
-            $packages->meta_description = $input['meta_description'];
-            $packages->meta_keywords = $input['meta_keywords'];
+            // $packages->meta_title = $input['meta_title'];
+            // $packages->meta_description = $input['meta_description'];
+            // $packages->meta_keywords = $input['meta_keywords'];
             // $packages->tags=$input['tags'];
             $packages->title = $input['title'];
-            $packages->slug = checkSlug(Str::slug($packages->title, '-'), 'packagess', $packages->id);
+            $packages->slug = checkSlug(Str::slug($packages->title, '-'), 'packages', $packages->id);
             $packages->detail = $input['detail'];
             // pr($packages->category);
-            $packages->blog_date = $input['blog_date'];
-            $packages->e_time = $input['e_time'];
-            $packages->s_time = $input['s_time'];
+            $packages->category = $input['category'];
+            $packages->short_detail = $input['short_detail'];
 
             // pr($input['category']);
             $packages->update();
@@ -122,6 +122,8 @@ class Packages extends Controller
         }
         $this->data['row'] = Packages_model::find($id);
         $this->data['enable_editor'] = true;
+        $this->data['categories'] = Packages_categories::where('status', 1)->get();
+
 
         return view('admin.packages.index', $this->data);
     }
