@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Sitecontent;
+use App\Models\Admin;
 
 
 class ContentPages extends Controller
@@ -99,5 +100,23 @@ class ContentPages extends Controller
 
     public function reviews(Request $request) {
         return $this->fetchPageContent('reviews');
+    }
+
+    public function website_settings(Request $request)
+    {
+        $token = $request->input('token', null);
+        $member = $this->authenticate_verify_token($token);
+        $countries = get_countries();
+        $states = get_country_states(231);
+        if (empty($header) || $header == null || $header == 'null') {
+            $output['not_logged'] = true;
+        }
+        if (!empty($member) && $member != false) {
+            $this->data['site_settings']->member = $member;
+        } else {
+            $this->data['site_settings']->member = null;
+        }
+        $output['site_settings'] = $this->data['site_settings'];
+        exit(json_encode($output));
     }
 }
