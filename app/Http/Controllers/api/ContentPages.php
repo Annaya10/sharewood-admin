@@ -9,9 +9,7 @@ use App\Models\Sitecontent;
 
 class ContentPages extends Controller
 {
-     /**
-     * Fetch site content based on route.
-     */
+    
     private function fetchPageContent($ckey)
     {
         $content = Sitecontent::where('ckey', $ckey)->first();
@@ -29,7 +27,7 @@ class ContentPages extends Controller
         }
     }
 
-    public function home_page(Request $request) {
+    public function home_page(Request $request) {  
         return $this->fetchPageContent('home');
     }
 
