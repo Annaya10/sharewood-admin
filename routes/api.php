@@ -59,7 +59,7 @@ Route::match(['GET', 'POST'], '/memberships-application', [ContentPages::class, 
 Route::match(['GET', 'POST'], '/accommodations', [ContentPages::class, 'accommodations']);
 Route::match(['GET', 'POST'], '/stay-play-packages', [ContentPages::class, 'stay_play_packages']);
 Route::match(['GET', 'POST'], '/reviews', [ContentPages::class, 'reviews']);
-// Route::match(['GET', 'POST'], '/site-settings', [ContentPages::class, 'website_settings']);
+Route::match(['GET', 'POST'], '/site-settings', [ContentPages::class, 'website_settings']);
 // Route::match(['GET', 'POST'], '/member-settings', [ContentPages::class, 'member_settings']);
 // Route::match(['GET', 'POST'], '/home-page', [ContentPages::class, 'home_page']);
 // Route::match(['GET', 'POST'], '/services-page', [ContentPages::class, 'services_page']);

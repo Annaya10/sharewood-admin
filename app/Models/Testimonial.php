@@ -16,6 +16,7 @@ class Testimonial extends Model
         'message',
         'status',
         'image',
+        'feature',
 
 
     ];

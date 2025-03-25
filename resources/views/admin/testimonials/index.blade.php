@@ -57,7 +57,12 @@
                   <label class="form-check-label" for="color-success"> {{ !empty($row) ? ($row->status == 0 ? 'InActive' : 'Active') : 'Status' }}</label>
                 </div>
               </div>
-             
+              <div class="mb-3">
+                <div class="form-check form-switch py-2">
+                  <input class="form-check-input success" type="checkbox" id="color-success" {{ !empty($row) ? ($row->featured == 1 ? 'checked' : '') : '' }} name="featured" />
+                  <label class="form-check-label" for="color-success"> {{ !empty($row) ? ($row->featured == 0 ? 'Not Featured' : 'Featured') : 'Featured' }}</label>
+                </div>
+              </div>
 
             </div>
           </div>
@@ -99,6 +104,8 @@
               <th>Name</th>
               <th>Post</th>
               <th>Status</th>
+              <th>Featured</th>
+
               <th>Action</th>
             </tr>
             <!-- end row -->
@@ -113,7 +120,9 @@
 
               </td>
               <td>{{ $row->post }}</td>
-              <td>{!! getStatus($row->status) !!}</td>
+              <td>{!! getStatus($row->status) !!}</td>             
+               <td>{!! getFeatured($row->featured) !!}</td>
+
              
               <td>
                 <div class="dropdown dropstart">

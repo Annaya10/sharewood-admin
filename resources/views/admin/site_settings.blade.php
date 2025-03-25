@@ -191,9 +191,9 @@
                   <div class="mb-3">
                     <div class="">
                       <label class="form-check-label" for="color-success"> Linkedin</label>
-                      <input class="form-control" id="site_discord" type="text"
-                        name="site_discord" placeholder="www.instagram.com/account_name"
-                        value="{{ $site_settings->site_discord }}">
+                      <input class="form-control" id="site_linkedin" type="text"
+                        name="site_linkedin" placeholder="www.instagram.com/account_name"
+                        value="{{ $site_settings->site_linkedin }}">
                     </div>
                   </div>
                 </div>

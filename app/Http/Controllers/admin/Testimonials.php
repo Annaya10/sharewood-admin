@@ -36,6 +36,12 @@ class Testimonials extends Controller
             } else {
                 $data['status'] = 0;
             }
+            if (!empty($input['featured'])) {
+                $data['featured'] = 1;
+            } else {
+                $data['featured']  
+                = 0;
+            }
             
             
             $data['name'] = $input['name'];
@@ -78,7 +84,11 @@ class Testimonials extends Controller
             } else {
                 $testimonial->status = 0;
             }
-          
+            if (!empty($input['featured'])) {
+                $testimonial->featured = 1;
+            } else {
+                $testimonial->featured = 0;
+            }
            
             $testimonial->name = $input['name'];
             $testimonial->post = $input['post'];
