@@ -9,6 +9,7 @@ use App\Models\Admin;
 use App\Models\Tournamnet_model;
 use App\Models\Testimonial;
 use App\Models\Gallery_model;
+use App\Models\Sponser;
 
 
 class ContentPages extends Controller
@@ -44,10 +45,18 @@ class ContentPages extends Controller
         $this->data['testimonials']=Testimonial::orderBy('id', 'DESC')->where('featured',1)->get(); 
         $this->data['gallery']=Gallery_model::orderBy('id', 'DESC')->where('is_featured',1)->get(); 
           
-        exit(json_encode($this->data));    }
+        exit(json_encode($this->data));
+     }
 
     public function about_page(Request $request) {
-        return $this->fetchPageContent('about');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('about');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function memberships_overview(Request $request) {
@@ -59,7 +68,16 @@ class ContentPages extends Controller
     }
 
     public function rates(Request $request) {
-        return $this->fetchPageContent('rates');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('rates');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+        $this->data['testimonials']=Testimonial::orderBy('id', 'DESC')->where('featured',1)->get(); 
+
+           
+          
+        exit(json_encode($this->data));
+     
     }
 
     public function booking_requests(Request $request) {
@@ -75,15 +93,37 @@ class ContentPages extends Controller
     }
 
     public function proshop_boutique(Request $request) {
-        return $this->fetchPageContent('proshop-boutique');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('proshop-boutique');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function hospitality_group_commitments(Request $request) {
-        return $this->fetchPageContent('hospitality-group-commitments');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('hospitality-group-commitments');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+        $this->data['sponsers']=Sponser::orderBy('id', 'DESC')->where('is_featured',1)->get(); 
+          
+        exit(json_encode($this->data));
     }
 
     public function course_guide_scorecard(Request $request) {
-        return $this->fetchPageContent('course-guide-scorecard');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('course-guide-scorecard');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function corporate_retreats_meetings(Request $request) {

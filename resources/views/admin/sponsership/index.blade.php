@@ -48,7 +48,7 @@
 
                             <div class="mb-3">
                                 <div class="form-check form-switch py-2">
-                                    <input class="form-check-input success"  name="featured" type="checkbox" id="color-success2" {{ !empty($row) ? ($row->is_featured == 1 ? 'checked' : '') : '' }} />
+                                    <input class="form-check-input success"  name="is_featured" type="checkbox" id="color-success2" {{ !empty($row) ? ($row->is_featured == 1 ? 'checked' : '') : '' }} />
                                     <label class="form-check-label" for="color-success2"> {{ !empty($row) ? ($row->is_featured == 0 ? 'NotFeatured' : 'Featured') : 'Featured' }}</label>
                                 </div>
                             </div>

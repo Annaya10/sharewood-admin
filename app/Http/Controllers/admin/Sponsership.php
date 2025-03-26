@@ -39,7 +39,7 @@ class Sponsership extends Controller
                 $data['status'] = 0;
             }
 
-            if (!empty($input['featured'])) {
+            if (!empty($input['is_featured'])) {
                 $data['is_featured'] = 1;
             } else {
                 $data['is_featured'] = 0;
@@ -86,7 +86,7 @@ class Sponsership extends Controller
                 $Games->status = 0;
             }
 
-            if (!empty($input['featured'])) {
+            if (!empty($input['is_featured'])) {
                 $Games->is_featured = 1;
             } else {
                 $Games->is_featured = 0;
