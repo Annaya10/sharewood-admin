@@ -196,16 +196,7 @@
                 data-bs-original-title="" title="">
         </div>
     </div>
-    <div class="card-body p-4">
-        <div class="text-center">
-            <div class="file_choose_icon">
-                <img src="{{ get_site_image_src('images', !empty($sitecontent['image7']) ? $sitecontent['image7'] : '') }}" alt="matdash-img" class="img-fluid ">
-            </div>
-            <p class="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-            <input class="form-control uploadFile" name="image7" type="file"
-                data-bs-original-title="" title="">
-        </div>
-    </div>
+ 
 </div>
 </div>
 
@@ -333,7 +324,11 @@
             </div>
         </div>
     </div>
-
+    <div class="col-12">
+        <div class="d-flex align-items-center justify-content-end mt-4 gap-6">
+            <button class="btn btn-primary" type="submit">Update Page</button>
+        </div>
+    </div>
 
     
     </div>
@@ -341,9 +336,5 @@
 
    
 
-    <div class="col-12">
-        <div class="d-flex align-items-center justify-content-end mt-4 gap-6">
-            <button class="btn btn-primary" type="submit">Update Page</button>
-        </div>
-    </div>
+  
     @endsection

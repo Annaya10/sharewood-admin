@@ -9,6 +9,7 @@ use App\Models\Admin;
 use App\Models\Tournamnet_model;
 use App\Models\Testimonial;
 use App\Models\Gallery_model;
+use App\Models\Team;
 use App\Models\Sponser;
 
 
@@ -53,6 +54,8 @@ class ContentPages extends Controller
         $member=$this->authenticate_verify_token($token);
         $this->data['content']=get_page('about');     
         $this->data['page_title']=$this->data['content']['page_title'];
+        $this->data['teams']=Team::orderBy('id', 'DESC')->where('featured',1)->get(); 
+
 
            
           
@@ -64,7 +67,15 @@ class ContentPages extends Controller
     }
 
     public function courses(Request $request) {
-        return $this->fetchPageContent('courses');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('courses');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+          
+        exit(json_encode($this->data));
+        
     }
 
     public function rates(Request $request) {
@@ -131,11 +142,25 @@ class ContentPages extends Controller
     }
 
     public function tournaments(Request $request) {
-        return $this->fetchPageContent('tournaments');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('tournaments');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function wedding_at_sherwood_golf(Request $request) {
-        return $this->fetchPageContent('wedding-at-sherwood-golf');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('wedding-at-sherwood-golf');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function memberships_application(Request $request) {

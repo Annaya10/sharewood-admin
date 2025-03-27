@@ -103,7 +103,7 @@
                                     </div>
 
                                 </td>
-                                <td>{!! $row->title !!}</td>
+                                  <td>{!! $row->title !!}</td>
                                 <td>{!! getStatus($row->status) !!}</td>
                                 <td>{!! getFeatured($row->is_featured) !!}</td>
                                 <td>

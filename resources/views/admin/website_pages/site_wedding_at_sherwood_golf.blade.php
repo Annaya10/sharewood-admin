@@ -249,6 +249,61 @@
             @endfor
 
 
+      
+
+            
+
+
+
+       
+           
+    </div>
+    </div>
+
+    <div class="card">
+
+<div class="card-header">
+    <h5>Section 3</h5>
+</div>
+
+<div class="card-body">
+
+    <div class="row">
+        <div class="col">
+            <div class="card w-100 border position-relative overflow-hidden">
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <div class="file_choose_icon">
+                            <img src="{{ get_site_image_src('images', !empty($sitecontent['image3']) ? $sitecontent['image3'] : "") }}" alt="matdash-img" class="img-fluid ">
+                        </div>
+                        <p class="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                        <input class="form-control uploadFile" name="image3" type="file"
+                            data-bs-original-title="" title="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="form-label" for="section3_heading"> Heading</label>
+                        <input class="form-control" id="section3_heading" type="text"
+                            name="section3_heading" placeholder=""
+                            value="{{ !empty($sitecontent['section3_heading']) ? $sitecontent['section3_heading'] : '' }}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="form-label" for="section3_text"> Text</label>
+                        <textarea id="section3_text" name="section3_text" rows="4" class="editor">{{ !empty($sitecontent['section3_text']) ? $sitecontent['section3_text'] : "" }}</textarea>
+                    </div>
+                </div>
+
+                  
+            </div>
             <div class="row">
                     @for ($i = 1; $i < 2; $i++)
                         <div class="col">
@@ -274,17 +329,101 @@
                 </div>
                 @endfor
             </div>
+        </div>
+      
+    </div>
+</div>
+
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-header">
+    <h5>Section 4</h5>
+</div>
+
+<div class="card-body">
+
+    <div class="row">
+        <div class="col">
+            <div class="card w-100 border position-relative overflow-hidden">
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <div class="file_choose_icon">
+                            <img src="{{ get_site_image_src('images', !empty($sitecontent['image4']) ? $sitecontent['image4'] : "") }}" alt="matdash-img" class="img-fluid ">
+                        </div>
+                        <p class="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                        <input class="form-control uploadFile" name="image4" type="file"
+                            data-bs-original-title="" title="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="form-label" for="section4_heading"> Heading</label>
+                        <input class="form-control" id="section4_heading" type="text"
+                            name="section4_heading" placeholder=""
+                            value="{{ !empty($sitecontent['section4_heading']) ? $sitecontent['section4_heading'] : '' }}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="form-label" for="section4_text"> Text</label>
+                        <textarea id="section4_text" name="section4_text" rows="4" class="editor">{{ !empty($sitecontent['section4_text']) ? $sitecontent['section4_text'] : "" }}</textarea>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+                    @for ($i = 1; $i < 2; $i++)
+                        <div class="col">
+                        <div class="mb-4">
+                            <label class="form-label" for="banner_link_text_sec4{{ $i }}">Link Text {{ $i }}</label>
+                            <input class="form-control" id="banner_link_text_sec4{{ $i }}" type="text"
+                                name="banner_link_text_sec4{{ $i }}" placeholder=""
+                                value="{{ !empty($sitecontent['banner_link_text_sec4' . $i]) ? $sitecontent['banner_link_text_sec4' . $i] : '' }}">
+                        </div>
+                </div>
+                <div class="col">
+                    <div class="mb-4">
+                        <label class="form-label" for="banner_link_url_sec4{{ $i }}">Link URL {{ $i }}</label>
+                        <select name="banner_link_url_sec4{{ $i }}" class="form-control" required>
+                            @foreach ($all_pages as $key => $page)
+                            <option value="{{ $key }}"
+                                {{ !empty($sitecontent['banner_link_url_sec4' . $i]) && $sitecontent['banner_link_url_sec4' . $i] == $key ? 'selected' : '' }}>
+                                {{ $page }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                @endfor
+            </div>
 
             
-
-
-
-       
-           
+        </div>
+      
     </div>
+    
+    <div class="col-12">
+        <div class="d-flex align-items-center justify-content-end mt-4 gap-6">
+            <button class="btn btn-primary" type="submit">Update Page</button>
+        </div>
     </div>
+</div>
 
 
+</div>
  
    
 
@@ -294,7 +433,7 @@
 
 
 
-<div class="card">
+<!-- <div class="card">
 
 <div class="card-header">
     <h5>Section 3</h5>
@@ -372,16 +511,11 @@
 
 </div>
 
-</div>
+</div> -->
 </div>
 
 
 </div>
    
   
-    <div class="col-12">
-        <div class="d-flex align-items-center justify-content-end mt-4 gap-6">
-            <button class="btn btn-primary" type="submit">Update Page</button>
-        </div>
-    </div>
     @endsection
