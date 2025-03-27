@@ -360,40 +360,8 @@
             </div>
         </div>
 
-        <div class="col">
-            <div class="card w-100 border position-relative overflow-hidden">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <div class="file_choose_icon">
-                            <img src="{{ get_site_image_src('images', !empty($sitecontent['image20']) ? $sitecontent['image20'] : "") }}" alt="matdash-img" class="img-fluid ">
-                        </div>
-                        <p class="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-                        <input class="form-control uploadFile" name="image20" type="file"
-                            data-bs-original-title="" title="">
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
-        <div class="col-md-12">
-                <div class="mb-3">
-                    <label class="form-label" for="section4_v_heading"> Heading</label>
-                    <input class="form-control" id="section4_v_heading" type="text"
-                        name="section4_v_heading" placeholder=""
-                        value="{{ !empty($sitecontent['section4_v_heading']) ? $sitecontent['section4_v_heading'] : '' }}">
-                </div>
-            </div>
-            
-           
-
-            <div class="col-md-12">
-                <div class="mb-3">
-                    <label class="form-label" for="section4_v_link"> Video Link</label>
-                    <input class="form-control" id="section4_v_link" type="text"
-                        name="section4_v_link" placeholder=""
-                        value="{{ !empty($sitecontent['section4_v_link']) ? $sitecontent['section4_v_link'] : '' }}">
-                </div>
-            </div>
     </div>
        
 

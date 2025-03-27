@@ -92,11 +92,25 @@ class ContentPages extends Controller
     }
 
     public function booking_requests(Request $request) {
-        return $this->fetchPageContent('booking-requests');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('booking-requests');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function privacy_policy(Request $request) {
-        return $this->fetchPageContent('privacy_policy');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('privacy_policy');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function terms_conditions(Request $request) {
@@ -168,7 +182,14 @@ class ContentPages extends Controller
     }
 
     public function accommodations(Request $request) {
-        return $this->fetchPageContent('accommodations');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('accommodations');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function stay_play_packages(Request $request) {
@@ -176,7 +197,15 @@ class ContentPages extends Controller
     }
 
     public function reviews(Request $request) {
-        return $this->fetchPageContent('reviews');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('reviews');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+        $this->data['testimonials']=Testimonial::orderBy('id', 'DESC')->where('status',1)->get(); 
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function website_settings(Request $request)
