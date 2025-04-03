@@ -388,19 +388,19 @@
                     @for ($i = 1; $i < 2; $i++)
                         <div class="col">
                         <div class="mb-4">
-                            <label class="form-label" for="banner_link_text_sec4{{ $i }}">Link Text {{ $i }}</label>
-                            <input class="form-control" id="banner_link_text_sec4{{ $i }}" type="text"
-                                name="banner_link_text_sec4{{ $i }}" placeholder=""
-                                value="{{ !empty($sitecontent['banner_link_text_sec4' . $i]) ? $sitecontent['banner_link_text_sec4' . $i] : '' }}">
+                            <label class="form-label" for="banner_link_text_sec3{{ $i }}">Link Text {{ $i }}</label>
+                            <input class="form-control" id="banner_link_text_sec3{{ $i }}" type="text"
+                                name="banner_link_text_sec3{{ $i }}" placeholder=""
+                                value="{{ !empty($sitecontent['banner_link_text_sec3' . $i]) ? $sitecontent['banner_link_text_sec3' . $i] : '' }}">
                         </div>
                 </div>
                 <div class="col">
                     <div class="mb-4">
-                        <label class="form-label" for="banner_link_url_sec4{{ $i }}">Link URL {{ $i }}</label>
-                        <select name="banner_link_url_sec4{{ $i }}" class="form-control" required>
+                        <label class="form-label" for="banner_link_url_sec3{{ $i }}">Link URL {{ $i }}</label>
+                        <select name="banner_link_url_sec3{{ $i }}" class="form-control" required>
                             @foreach ($all_pages as $key => $page)
                             <option value="{{ $key }}"
-                                {{ !empty($sitecontent['banner_link_url_sec4' . $i]) && $sitecontent['banner_link_url_sec4' . $i] == $key ? 'selected' : '' }}>
+                                {{ !empty($sitecontent['banner_link_url_sec3' . $i]) && $sitecontent['banner_link_url_sec3' . $i] == $key ? 'selected' : '' }}>
                                 {{ $page }}
                             </option>
                             @endforeach
@@ -433,7 +433,7 @@
 
 
 
-<!-- <div class="card">
+<div class="card">
 
 <div class="card-header">
     <h5>Section 3</h5>
@@ -511,7 +511,7 @@
 
 </div>
 
-</div> -->
+</div>
 </div>
 
 

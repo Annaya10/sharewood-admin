@@ -11,6 +11,7 @@ use App\Models\Testimonial;
 use App\Models\Gallery_model;
 use App\Models\Team;
 use App\Models\Sponser;
+use App\Models\Packages_model;
 
 
 class ContentPages extends Controller
@@ -63,7 +64,12 @@ class ContentPages extends Controller
     }
 
     public function memberships_overview(Request $request) {
-        return $this->fetchPageContent('memberships-overview');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('memberships-overview');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+   
+        exit(json_encode($this->data));
     }
 
     public function courses(Request $request) {
@@ -152,7 +158,21 @@ class ContentPages extends Controller
     }
 
     public function corporate_retreats_meetings(Request $request) {
-        return $this->fetchPageContent('corporate-retreats-meetings');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('corporate-retreats-meetings');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+        $this->data['gallery']=Gallery_model::orderBy('id', 'DESC')->where('is_featured',1)->get(); 
+        $this->data['packages'] = Packages_model::where('status', 1)
+        ->where('featured', 1)
+        ->where('category', 1)
+        ->orderBy('id', 'DESC')
+        ->get();
+
+
+           
+          
+        exit(json_encode($this->data));
     }
 
     public function tournaments(Request $request) {
@@ -178,7 +198,12 @@ class ContentPages extends Controller
     }
 
     public function memberships_application(Request $request) {
-        return $this->fetchPageContent('memberships-application');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('memberships-application');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+   
+        exit(json_encode($this->data));
     }
 
     public function accommodations(Request $request) {
@@ -193,7 +218,26 @@ class ContentPages extends Controller
     }
 
     public function stay_play_packages(Request $request) {
-        return $this->fetchPageContent('stay-play-packages');
+        $token=$request->input('token', null);
+        $member=$this->authenticate_verify_token($token);
+        $this->data['content']=get_page('stay-play-packages');     
+        $this->data['page_title']=$this->data['content']['page_title'];
+        $this->data['packages'] = Packages_model::where('status', 1)
+        ->where('featured', 1)
+        ->where('category', 4)
+        ->where('duration', 1)
+        ->orderBy('id', 'DESC')
+        ->get();
+        $this->data['packages_wed'] = Packages_model::where('status', 1)
+        ->where('featured', 1)
+        ->where('category', 4)
+        ->where('duration', 2)
+        ->orderBy('id', 'DESC')
+        ->get();
+           
+          
+        exit(json_encode($this->data));
+     
     }
 
     public function reviews(Request $request) {

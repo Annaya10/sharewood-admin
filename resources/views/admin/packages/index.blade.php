@@ -21,7 +21,7 @@
               <h4 class="card-title">Change Image</h4>
               <div class="text-center">
                 <div class="file_choose_icon">
-                  <img src="{{ get_site_image_src('tournament', !empty($row) ? $row->image : '') }}" alt="matdash-img" class="img-fluid" width="120" height="120">
+                  <img src="{{ get_site_image_src('packages', !empty($row) ? $row->image : '') }}" alt="matdash-img" class="img-fluid" width="120" height="120">
                 </div>
                 <input class="form-control uploadFile" name="image" type="file"
                   data-bs-original-title="" title="">
@@ -51,6 +51,29 @@
                   @endforeach
                 </select>
               </div>
+
+              <div class="mb-3">
+                <label for="name" class="form-label">Duration</label>
+                <select name="duration" class="form-control" required>
+                  <option value="">Select Duration</option>
+                 
+                  <option value="0"
+                    {{ !empty($row) ? ($row->duration == 0 ? 'selected' : '') : '' }}>
+                    No
+                  </option>
+                  <option value="1"
+                    {{ !empty($row) ? ($row->duration == 1 ? 'selected' : '') : '' }}>
+                    Sunday to Wednesday
+
+                  </option>
+                  <option value="2"
+                    {{ !empty($row) ? ($row->duration == 2 ? 'selected' : '') : '' }}>
+                    Thursday to Saturday
+
+                  </option>
+                </select>
+              </div>
+
 
               <div class="mb-3">
                 <label for="detail" class="form-label">Short Description</label>

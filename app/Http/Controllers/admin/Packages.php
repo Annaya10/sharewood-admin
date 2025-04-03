@@ -58,6 +58,7 @@ class Packages extends Controller
             $data['detail'] = $input['detail'];
 
             $data['short_detail'] = $input['short_detail'];
+            $data['duration'] = $input['duration'];
             $data['category'] = $input['category'];
 
             // pr($data);
@@ -114,6 +115,7 @@ class Packages extends Controller
             // pr($packages->category);
             $packages->category = $input['category'];
             $packages->short_detail = $input['short_detail'];
+            $packages->duration = $input['duration'];
 
             // pr($input['category']);
             $packages->update();

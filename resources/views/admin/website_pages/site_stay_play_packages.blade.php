@@ -205,16 +205,16 @@
 
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <label class="form-label" for="section2_heading"> Heading</label>
-                        <input class="form-control" id="section2_heading" type="text"
-                            name="section2_heading" placeholder=""
-                            value="{{ !empty($sitecontent['section2_heading']) ? $sitecontent['section2_heading'] : '' }}">
+                        <label class="form-label" for="section3_heading"> Heading</label>
+                        <input class="form-control" id="section3_heading" type="text"
+                            name="section3_heading" placeholder=""
+                            value="{{ !empty($sitecontent['section3_heading']) ? $sitecontent['section3_heading'] : '' }}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <label class="form-label" for="section2_text"> Text</label>
-                        <textarea id="section2_text" name="section2_text" rows="4" class="editor">{{ !empty($sitecontent['section2_text']) ? $sitecontent['section2_text'] : "" }}</textarea>
+                        <label class="form-label" for="section3_text"> Text</label>
+                        <textarea id="section3_text" name="section3_text" rows="4" class="editor">{{ !empty($sitecontent['section3_text']) ? $sitecontent['section3_text'] : "" }}</textarea>
                     </div>
                 </div>
 
