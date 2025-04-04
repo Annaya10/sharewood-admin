@@ -12,6 +12,7 @@ use App\Models\Gallery_model;
 use App\Models\Team;
 use App\Models\Sponser;
 use App\Models\Packages_model;
+use App\Models\Faq_model;
 
 
 class ContentPages extends Controller
@@ -128,6 +129,10 @@ class ContentPages extends Controller
         $member=$this->authenticate_verify_token($token);
         $this->data['content']=get_page('proshop-boutique');     
         $this->data['page_title']=$this->data['content']['page_title'];
+        $this->data['faqs']=Faq_model::orderBy('id', 'DESC')->where('status',1)->get(); 
+
+    
+
 
            
           

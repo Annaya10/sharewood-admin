@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\Contact;
 use App\Http\Controllers\admin\Dashboard;
 use App\Http\Controllers\admin\Gallery;
 use App\Http\Controllers\admin\Markers;
+use App\Http\Controllers\admin\Faqs;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\Testimonials;
 
@@ -201,6 +202,14 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/course/add', [CourseController::class, 'add']);
     Route::match(['GET', 'POST'], '/admin/course/edit/{id}', [CourseController::class, 'edit']);
     Route::match(['GET', 'POST'], '/admin/course/delete/{id}', [CourseController::class, 'delete']);
+
+
+      /*==============================Faqs  Module =====================================*/
+
+      Route::get('/admin/faqs', [Faqs::class, 'index']);
+      Route::match(['GET', 'POST'], '/admin/faqs/add', [Faqs::class, 'add']);
+      Route::match(['GET', 'POST'], '/admin/faqs/edit/{id}', [Faqs::class, 'edit']);
+      Route::match(['GET', 'POST'], '/admin/faqs/delete/{id}', [Faqs::class, 'delete']);
 
    /*==============================TEAM  Module =====================================*/
    Route::get('/admin/team', [TeamController::class, 'index']);

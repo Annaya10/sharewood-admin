@@ -113,6 +113,24 @@
           </ul>
         </li>
 
+
+        
+        <li class="sidebar-item">
+          <a class="sidebar-link has-arrow {{ $admin_page == 'faqs' || $admin_page == 'blog_categories' ? 'active' : '' }}" href="javascript:void(0)" aria-expanded="false">
+            <iconify-icon icon="solar:widget-4-line-duotone"></iconify-icon>
+            <span class="hide-menu">Faqs</span>
+          </a>
+          <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'faqs' || $admin_page == 'blog_categories' ? 'in' : '' }}">
+            <li class="sidebar-item">
+              <a class="sidebar-link {{ $admin_page == 'faqs' ? 'active' : '' }}" href="{{ url('admin/faqs') }}">
+                <span class="icon-small"></span>Faqs 
+                Post
+              </a>
+            </li>
+           
+          </ul>
+        </li>
+
         <li class="sidebar-item">
           <a class="sidebar-link {{ $admin_page == 'team' ? 'active' : '' }}" href="{{ url('admin/team') }}" aria-expanded="false">
             <iconify-icon icon="jam:users"></iconify-icon>
