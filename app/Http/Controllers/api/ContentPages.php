@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Sitecontent;
 use App\Models\Admin;
 use App\Models\Tournamnet_model;
+use App\Models\Event;
+use App\Models\Course;
 use App\Models\Testimonial;
 use App\Models\Gallery_model;
 use App\Models\Team;
@@ -78,6 +80,8 @@ class ContentPages extends Controller
         $member=$this->authenticate_verify_token($token);
         $this->data['content']=get_page('courses');     
         $this->data['page_title']=$this->data['content']['page_title'];
+        $this->data['courses']=Course::orderBy('id', 'DESC')->where('featured',1)->get(); 
+
 
            
           
@@ -185,6 +189,8 @@ class ContentPages extends Controller
         $member=$this->authenticate_verify_token($token);
         $this->data['content']=get_page('tournaments');     
         $this->data['page_title']=$this->data['content']['page_title'];
+        $this->data['events']=Event::orderBy('id', 'ASC')->where('featured',1)->get(); 
+
 
            
           

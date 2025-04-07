@@ -2509,10 +2509,25 @@ function getSingleData($table_name, $where)
     return $rows;
 }
 
-function get_pages()
-{
-    return $page_arr = array('/' => 'Home', '/about' => 'About Us', '/products' => 'Products', '/contact' => 'Contact Us', '/privacy-policy' => 'Privacy Policy', '/terms-conditions' => 'Terms & Conditions');
+function get_pages() {
+    return $page_arr = array(
+        '/' => 'Home',
+        '/about' => 'About Us',
+        '/proshop' => 'ProShop & Boutique',
+        '/partnerships' => 'Partnerships',
+        '/accomodation' => 'Accomodation',
+        '/corporate-retreats' => 'Corporate Retreats',
+        '/memberships' => 'Memberships',
+        '/course' => 'Course',
+        '/green-fee-rates' => 'Green fee rates',
+        '/scorecard' => 'Scorecard',
+        '/stay-play-packages' => 'Stay play packages',
+        '/booking-request' => 'Booking Request',
+        '/application-information' => 'Application information',
+        '/tournament' => 'Tournament',
+    );
 }
+
 function checkSlug($slug, $table_name, $id = '')
 {
 

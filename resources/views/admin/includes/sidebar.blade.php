@@ -82,53 +82,38 @@
 
 
         <li class="sidebar-item">
-          <a class="sidebar-link has-arrow {{ $admin_page == 'tournament' || $admin_page == 'blog_categories' ? 'active' : '' }}" href="javascript:void(0)" aria-expanded="false">
-            <iconify-icon icon="solar:widget-4-line-duotone"></iconify-icon>
-            <span class="hide-menu">Tournaments</span>
+          <a class="sidebar-link {{ $admin_page == 'tournament' ? 'active' : '' }}" href="{{ url('admin/tournament') }}">
+            <iconify-icon icon="mdi:file"></iconify-icon>
+            Tournaments
+
           </a>
-          <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'tournament' || $admin_page == 'blog_categories' ? 'in' : '' }}">
-            <li class="sidebar-item">
-              <a class="sidebar-link {{ $admin_page == 'tournament' ? 'active' : '' }}" href="{{ url('admin/tournament') }}">
-                <span class="icon-small"></span>Tournament
-                Posts
-              </a>
-            </li>
-           
-          </ul>
         </li>
 
         <li class="sidebar-item">
-          <a class="sidebar-link has-arrow {{ $admin_page == 'course' || $admin_page == 'blog_categories' ? 'active' : '' }}" href="javascript:void(0)" aria-expanded="false">
-            <iconify-icon icon="solar:widget-4-line-duotone"></iconify-icon>
-            <span class="hide-menu">Courses</span>
+          <a class="sidebar-link {{ $admin_page == 'event' ? 'active' : '' }}" href="{{ url('admin/event') }}">
+            <iconify-icon icon="mdi:file"></iconify-icon>
+            Events
+
           </a>
-          <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'course' || $admin_page == 'blog_categories' ? 'in' : '' }}">
-            <li class="sidebar-item">
-              <a class="sidebar-link {{ $admin_page == 'course' ? 'active' : '' }}" href="{{ url('admin/course') }}">
-                <span class="icon-small"></span>Courses 
-                Post
-              </a>
-            </li>
-           
-          </ul>
         </li>
 
+       
 
-        
         <li class="sidebar-item">
-          <a class="sidebar-link has-arrow {{ $admin_page == 'faqs' || $admin_page == 'blog_categories' ? 'active' : '' }}" href="javascript:void(0)" aria-expanded="false">
-            <iconify-icon icon="solar:widget-4-line-duotone"></iconify-icon>
-            <span class="hide-menu">Faqs</span>
+          <a class="sidebar-link {{ $admin_page == 'course' ? 'active' : '' }}" href="{{ url('admin/course') }}">
+            <iconify-icon icon="mdi:message"></iconify-icon>
+            Courses
+
           </a>
-          <ul aria-expanded="false" class="collapse first-level {{ $admin_page == 'faqs' || $admin_page == 'blog_categories' ? 'in' : '' }}">
-            <li class="sidebar-item">
-              <a class="sidebar-link {{ $admin_page == 'faqs' ? 'active' : '' }}" href="{{ url('admin/faqs') }}">
-                <span class="icon-small"></span>Faqs 
-                Post
-              </a>
-            </li>
-           
-          </ul>
+        </li>
+   
+
+        <li class="sidebar-item">
+          <a class="sidebar-link {{ $admin_page == 'faqs' ? 'active' : '' }}" href="{{ url('admin/faqs') }}">
+            <iconify-icon icon="mdi:eye"></iconify-icon>
+            Faqs
+
+          </a>
         </li>
 
         <li class="sidebar-item">
@@ -177,9 +162,9 @@
 
 
         <li class="sidebar-item">
-          <a class="sidebar-link {{ $admin_page == 'contact' ? 'active' : '' }}" href="{{ url('admin/contact') }}" aria-expanded="false">
+          <a class="sidebar-link {{ $admin_page == 'booking' ? 'active' : '' }}" href="{{ url('admin/booking') }}" aria-expanded="false">
             <iconify-icon icon="tabler:message-user"></iconify-icon>
-            <span class="hide-menu">Contact Messages</span>
+            <span class="hide-menu">Booking Request</span>
           </a>
         </li>
         <li class="sidebar-item">

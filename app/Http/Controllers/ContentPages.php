@@ -11,6 +11,7 @@ use App\Models\Center_categories_model;
 use App\Models\Products_model;
 use App\Models\Blog_categories_model;
 use App\Models\Blog_model;
+use App\Models\Event;
 
 // use App\Models\Locations_model;
 use Illuminate\Http\Request;

@@ -5,7 +5,7 @@ use App\Http\Controllers\Ajax;
 use App\Http\Controllers\admin\Index;
 use App\Http\Controllers\admin\Pages;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\Contact;
+use App\Http\Controllers\admin\Booking_Controller;
 
 use App\Http\Controllers\admin\Dashboard;
 use App\Http\Controllers\admin\Gallery;
@@ -16,6 +16,7 @@ use App\Http\Controllers\admin\Testimonials;
 
 
 use App\Http\Controllers\admin\Tournaments;
+use App\Http\Controllers\admin\Events;
 use App\Http\Controllers\admin\Packages;
 use App\Http\Controllers\admin\Packages_categories_model;
 use App\Http\Controllers\admin\Sponsership;
@@ -182,6 +183,12 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/tournament/edit/{id}', [Tournaments::class, 'edit']);
     Route::match(['GET', 'POST'], '/admin/tournament/delete/{id}', [Tournaments::class, 'delete']);
 
+      /*==============================events  Module =====================================*/
+      Route::get('/admin/event', [Events::class, 'index']);
+      Route::match(['GET', 'POST'], '/admin/event/add', [Events::class, 'add']);
+      Route::match(['GET', 'POST'], '/admin/event/edit/{id}', [Events::class, 'edit']);
+      Route::match(['GET', 'POST'], '/admin/event/delete/{id}', [Events::class, 'delete']);
+
 
     /*==============================Packages  Module =====================================*/
     Route::get('/admin/packages', [Packages::class, 'index']);
@@ -225,9 +232,9 @@ Route::middleware(['is_admin'])->group(function () {
      Route::match(['GET', 'POST'], '/admin/testimonials/delete/{id}', [Testimonials::class, 'delete']);
     
     /*==============================fdghfghfg =====================================*/
-    Route::get('/admin/contact', [Contact::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/contact/view/{id}', [Contact::class, 'view']);
-    Route::match(['GET', 'POST'], '/admin/contact/delete/{id}', [Contact::class, 'delete']);
+    Route::get('/admin/booking', [Booking_Controller::class, 'index']);
+    Route::match(['GET', 'POST'], '/admin/booking/view/{id}', [Booking_Controller::class, 'view']);
+    Route::match(['GET', 'POST'], '/admin/booking/delete/{id}', [Booking_Controller::class, 'delete']);
 
     /*==============================Subscribers =====================================*/
     Route::get('/admin/subscribers', [Subscribers::class, 'index']);

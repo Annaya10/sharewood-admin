@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact_model;
 use App\Models\Newsletter_model;
 use App\Models\Mem_id_verifications_model;
+use App\Models\Booking;
 use Illuminate\Support\Facades\DB;
 use PHPMailer\PHPMailer\Exception;
 use Illuminate\Support\Facades\Storage;
@@ -413,5 +414,108 @@ class Ajax extends Controller
             }
         }
         exit(json_encode($res));
+    }
+
+
+    public function bookingRequest(Request $request)
+    {
+        $res = array();
+        $res['status'] = 0;
+
+        $input = $request->all();
+
+        // Validation rules based on your form data
+        if ($input) {
+            $request_data = [
+                'lookingToDo' => 'required|in:Stay Only,Stay & Play',
+                'firstName' => 'required|string|max:255',
+                'lastName' => 'required|string|max:255',
+                'email' => 'required|email',
+                'phoneNumber' => 'required|string|max:20',
+                'postalCode' => 'required|string|max:20',
+                'stateProvince' => 'required|string|max:100',
+                'contactMethod' => 'required|in:Email,Phone',
+                'arrivalDate' => 'required|date',
+                'departureDate' => 'required|date',
+                'flexibleDates' => 'required|string|max:255',
+                'guests' => 'required|integer',
+                'airportPickup' => 'required|in:Yes,No',
+                'rooms' => 'required|integer',
+                'roomType' => 'required|string|max:255',
+                'accommodationPreferences' => 'nullable|string|max:500',
+                'rounds' => 'required|integer',
+                'courses' => 'required|array', 
+                'golfTime' => 'required|in:Anytime,Morning,Afternoon,Twilight',
+                'teeTimePreferences' => 'nullable|string|max:255', 
+                'hearAboutUs' => 'required|string|max:255',
+                'specialOccasion' => 'nullable|string|max:255',
+                'consent' => 'required|string|max:255',
+            ];
+
+            $validator = Validator::make($input, $request_data);
+
+            if ($validator->fails()) {
+                $res['status'] = 0;
+                $res['msg'] = 'Validation errors: ' . $validator->errors()->first();
+            } else {
+                // Prepare the data for saving
+                $data = [
+                    'looking_to_do' => $input['lookingToDo'],
+                    'first_name' => $input['firstName'],
+                    'last_name' => $input['lastName'],
+                    'email' => $input['email'],
+                    'phone_number' => $input['phoneNumber'],
+                    'postal_code' => $input['postalCode'],
+                    'state_province' => $input['stateProvince'],
+                    'contact_method' => $input['contactMethod'],
+                    'arrival_date' => $input['arrivalDate'],
+                    'departure_date' => $input['departureDate'],
+                    'flexible_dates' => $input['flexibleDates'] == true ? 1 : 0,
+                    'guests' => $input['guests'],
+                    'airport_pickup' => $input['airportPickup'],
+                    'rooms' => $input['rooms'],
+                    'room_type' => $input['roomType'],
+                    'accommodation_preferences' => $input['accommodationPreferences'] ?? null,
+                    'rounds' => $input['rounds'],
+                    'courses' => json_encode($input['courses']),
+                    'golf_time' => $input['golfTime'],
+                    'tee_time_preferences' => $input['teeTimePreferences'] ?? null,
+                    'hear_about_us' => $input['hearAboutUs'],
+                    'special_occasion' => $input['specialOccasion'] ?? null,
+                    'consent' => $input['consent'] == true ? 1 : 0,
+                ];
+
+                $bookingRequest = Booking::create($data);
+
+                if ($bookingRequest) {
+                    // $emailData = [
+                    //     'email_from' => $this->data['site_settings']->site_noreply_email,
+                    //     'email_from_name' => $this->data['site_settings']->site_name,
+                    //     'email_to' => $data['email'],
+                    //     'email_to_name' => $data['first_name'] . ' ' . $data['last_name'],
+                    //     'subject' => 'Your Booking Request Received',
+                    //     'content' => $data,
+                    // ];
+
+                    // $emailSent = send_email($emailData, 'booking_confirmation');
+
+                    // if ($emailSent) {
+                    //     $res['status'] = 1;
+                    //     $res['msg'] = 'Booking request sent successfully!';
+                    // } else {
+                    //     $res['status'] = 0;
+                    //     $res['msg'] = 'Failed to send booking confirmation email.';
+                    // }
+
+                    $res['status'] = 1;
+                    $res['msg'] = 'Booking request sent successfully!';
+                } else {
+                    $res['status'] = 0;
+                    $res['msg'] = 'Failed to save your booking request.';
+                }
+            }
+        }
+
+        return response()->json($res);
     }
 }

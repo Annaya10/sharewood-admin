@@ -44,30 +44,23 @@ class CourseController extends Controller
                 $data['featured']  
                 = 0;
             }
-            if (!empty($input['popular'])) {
-                $data['popular'] = 1;
-            } else {
-                $data['popular'] = 0;
-            }
+           
             $data['meta_title'] = $input['meta_title'];
             $data['meta_description'] = $input['meta_description'];
             $data['meta_keywords'] = $input['meta_keywords'];
             // $data['tags']=$input['tags'];
             $data['title'] = $input['title'];
-            $data['slug'] = checkSlug(Str::slug($data['title'], '-'), 'tournaments');
+            $data['slug'] = checkSlug(Str::slug($data['title'], '-'), 'courses');
             $data['detail'] = $input['detail'];
 
-            $data['blog_date'] = $input['blog_date'];
-            $data['e_time'] = $input['e_time'];
-            $data['s_time'] = $input['s_time'];
+          
 
-            // pr($data);
             $id = Course::create($data);
             return redirect('admin/course/')
                 ->with('success', 'Content Updated Successfully');
         }
         $this->data['enable_editor'] = true;
-        return view('admin.tournament.index', $this->data);
+        return view('admin.course.index', $this->data);
     }
     public function edit(Request $request, $id)
     {
@@ -99,22 +92,15 @@ class CourseController extends Controller
             } else {
                 $course->featured = 0;
             }
-            if (!empty($input['popular'])) {
-                $course->popular = 1;
-            } else {
-                $course->popular = 0;
-            }
+
             $course->meta_title = $input['meta_title'];
             $course->meta_description = $input['meta_description'];
             $course->meta_keywords = $input['meta_keywords'];
             // $course->tags=$input['tags'];
             $course->title = $input['title'];
-            $course->slug = checkSlug(Str::slug($course->title, '-'), 'tournaments', $course->id);
+            $course->slug = checkSlug(Str::slug($course->title, '-'), 'courses', $course->id);
             $course->detail = $input['detail'];
-            // pr($course->category);
-            $course->blog_date = $input['blog_date'];
-            $course->e_time = $input['e_time'];
-            $course->s_time = $input['s_time'];
+        
 
             // pr($input['category']);
             $course->update();

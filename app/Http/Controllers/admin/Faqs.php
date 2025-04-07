@@ -13,7 +13,6 @@ class Faqs extends Controller
     {
         has_access(17);
         $this->data['rows'] = Faq_model::orderBy('id', 'DESC')->get();
-        
         return view('admin.faqs.index', $this->data);
     }
     public function add(Request $request)
