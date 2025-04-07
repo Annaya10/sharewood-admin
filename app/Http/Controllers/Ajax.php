@@ -11,6 +11,7 @@ use App\Models\Contact_model;
 use App\Models\Newsletter_model;
 use App\Models\Mem_id_verifications_model;
 use App\Models\Booking;
+use App\Models\EventBooking;
 use Illuminate\Support\Facades\DB;
 use PHPMailer\PHPMailer\Exception;
 use Illuminate\Support\Facades\Storage;
@@ -350,6 +351,52 @@ class Ajax extends Controller
         }
         exit(json_encode($res));
     }
+    public function eventBooking(Request $request)
+    {
+        $res = ['status' => 0];
+        $input = $request->all();
+
+        if ($input) {
+            $request_data = [
+                'name' => 'required|string|max:255',
+                'phone' => 'required|string|max:20',
+                'email' => 'required|email|max:255',
+                'company' => 'nullable|string|max:255',
+                'event_type' => 'required|string|max:100',
+                'date_time' => 'required|string|max:100',
+                'players' => 'required|integer',
+                'package' => 'nullable|string|max:100',
+                'services' => 'required|string|max:100', // At least one must be selected
+            ];
+
+            $validator = Validator::make($input, $request_data);
+
+            if ($validator->fails()) {
+                $res['status'] = 0;
+                $res['msg'] = 'Error >> ' . $validator->errors()->first();
+            } else {
+                $data = [
+                    'name' => $input['name'],
+                    'phone' => $input['phone'],
+                    'email' => $input['email'],
+                    'company' => $input['company'] ?? null,
+                    'event_type' => $input['event_type'],
+                    'date_time' => $input['date_time'],
+                    'players' => $input['players'],
+                    'package' => $input['package'] ?? null,
+                    'services' => json_encode($input['services']),
+                ];
+
+                EventBooking::create($data);
+
+                $res['status'] = 1;
+                $res['msg'] = 'Event booking submitted successfully!';
+            }
+        }
+
+        return response()->json($res);
+    }
+
     public function contact_us(Request $request)
     {
 
@@ -444,9 +491,9 @@ class Ajax extends Controller
                 'roomType' => 'required|string|max:255',
                 'accommodationPreferences' => 'nullable|string|max:500',
                 'rounds' => 'required|integer',
-                'courses' => 'required|array', 
+                'courses' => 'required|array',
                 'golfTime' => 'required|in:Anytime,Morning,Afternoon,Twilight',
-                'teeTimePreferences' => 'nullable|string|max:255', 
+                'teeTimePreferences' => 'nullable|string|max:255',
                 'hearAboutUs' => 'required|string|max:255',
                 'specialOccasion' => 'nullable|string|max:255',
                 'consent' => 'required|string|max:255',

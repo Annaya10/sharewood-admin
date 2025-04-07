@@ -44,11 +44,7 @@ class Packages extends Controller
                 $data['featured']  
                 = 0;
             }
-            if (!empty($input['popular'])) {
-                $data['popular'] = 1;
-            } else {
-                $data['popular'] = 0;
-            }
+            
             // $data['meta_title'] = $input['meta_title'];
             // $data['meta_description'] = $input['meta_description'];
             // $data['meta_keywords'] = $input['meta_keywords'];
@@ -59,6 +55,8 @@ class Packages extends Controller
 
             $data['short_detail'] = $input['short_detail'];
             $data['duration'] = $input['duration'];
+            $data['fee_duration'] = $input['fee_duration'];
+            $data['type'] = $input['type'];
             $data['category'] = $input['category'];
 
             // pr($data);
@@ -100,11 +98,7 @@ class Packages extends Controller
             } else {
                 $packages->featured = 0;
             }
-            if (!empty($input['popular'])) {
-                $packages->popular = 1;
-            } else {
-                $packages->popular = 0;
-            }
+            
             // $packages->meta_title = $input['meta_title'];
             // $packages->meta_description = $input['meta_description'];
             // $packages->meta_keywords = $input['meta_keywords'];
@@ -116,6 +110,8 @@ class Packages extends Controller
             $packages->category = $input['category'];
             $packages->short_detail = $input['short_detail'];
             $packages->duration = $input['duration'];
+            $packages->type = $input['type'];
+            $packages->fee_duration = $input['fee_duration'];
 
             // pr($input['category']);
             $packages->update();

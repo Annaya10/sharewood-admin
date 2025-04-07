@@ -79,6 +79,16 @@
                 <label for="detail" class="form-label">Short Description</label>
                 <textarea class="form-control" name="short_detail">{{ !empty($row) ? $row->short_detail : '' }}</textarea>
               </div>
+
+              <div class="mb-3">
+                <label for="title" class="form-label">Type</label>
+                <input type="text" class="form-control" name="type" value="{{!empty($row->type) ? $row->type : ""}}">
+              </div>
+
+              <div class="mb-3">
+                <label for="title" class="form-label">Fee Duration</label>
+                <input type="text" class="form-control" name="fee_duration" value="{{!empty($row->fee_duration) ? $row->fee_duration : ""}}">
+              </div>
               
           
 

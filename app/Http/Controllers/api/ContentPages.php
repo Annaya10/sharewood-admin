@@ -71,6 +71,11 @@ class ContentPages extends Controller
         $member=$this->authenticate_verify_token($token);
         $this->data['content']=get_page('memberships-overview');     
         $this->data['page_title']=$this->data['content']['page_title'];
+        $this->data['packages'] = Packages_model::where('status', 1)
+        ->where('featured', 1)
+        ->where('category', 3)
+        ->orderBy('id', 'DESC')
+        ->get();
    
         exit(json_encode($this->data));
     }

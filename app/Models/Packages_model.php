@@ -16,15 +16,15 @@ class Packages_model extends Model
         'meta_title',
         'meta_description',
         'meta_keywords',
-        'blog_date',
-        's_time',
-        'e_time',
+        'short_detail',
+        'fee_duration',
 
         'detail',
+        'duration',
         'image',
         'status',
         'featured',
-        'popular',
+        'type',
         'slug',
     ];
 
