@@ -45,11 +45,11 @@
                 <div class="d-flex align-items-center justify-content-center round-48 rounded text-bg-success flex-shrink-0 mb-3 mx-auto display-6">
                   <iconify-icon icon="tabler:message-user"></iconify-icon>
                 </div>
-                <h6 class="fw-normal fs-3 mb-1">Total Contact Messages</h6>
+                <h6 class="fw-normal fs-3 mb-1">Total Booking Request</h6>
                 <h4 class="mb-3 d-flex align-items-center justify-content-center gap-1">
                   {{$contact}}
                 </h4>
-                <a href="{{url('/admin/contact')}}" class="btn btn-white fs-2 fw-semibold text-nowrap">View
+                <a href="{{url('/admin/booking')}}" class="btn btn-white fs-2 fw-semibold text-nowrap">View
                   Details</a>
               </div>
             </div>
@@ -62,11 +62,11 @@
                 <div class="d-flex align-items-center justify-content-center round-48 rounded text-bg-info flex-shrink-0 mb-3 mx-auto display-6">
                   <iconify-icon icon="jam:newsletter"></iconify-icon>
                 </div>
-                <h6 class="fw-normal fs-3 mb-1">Total Subscribers</h6>
+                <h6 class="fw-normal fs-3 mb-1">Total Reservation </h6>
                 <h4 class="mb-3 d-flex align-items-center justify-content-center gap-1">
                   {{$subscribers}}
                 </h4>
-                <a href="{{url('/admin/subscribers')}}" class="btn btn-white fs-2 fw-semibold text-nowrap">View
+                <a href="{{url('/admin/reservation')}}" class="btn btn-white fs-2 fw-semibold text-nowrap">View
                   Details</a>
               </div>
             </div>

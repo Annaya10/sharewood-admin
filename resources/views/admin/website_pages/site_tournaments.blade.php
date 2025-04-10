@@ -237,7 +237,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- <div class="card">
 
 <div class="card-header">
     <h5>Section 3</h5>
@@ -312,7 +312,7 @@
 </div>
 
 
-</div>
+</div> -->
 
 
 
@@ -398,6 +398,11 @@
     </div>
   
 </div>
+<div class="col-12">
+        <div class="d-flex align-items-center justify-content-end mt-4 gap-6">
+            <button class="btn btn-primary" type="submit">Update Page</button>
+        </div>
+    </div>
 </div>
 
     </div>
@@ -406,9 +411,5 @@
 
  
 
-    <div class="col-12">
-        <div class="d-flex align-items-center justify-content-end mt-4 gap-6">
-            <button class="btn btn-primary" type="submit">Update Page</button>
-        </div>
-    </div>
+   
     @endsection

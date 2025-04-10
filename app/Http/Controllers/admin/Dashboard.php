@@ -14,8 +14,8 @@ class Dashboard extends Controller
     {
         $this->data['members'] = table_count('members', array(), true);
 
-        $this->data['contact'] = table_count('contact', array(), true);
-        $this->data['subscribers'] = table_count('newsletter', array(), true);
+        $this->data['contact'] = table_count('booking_requests', array(), true);
+        $this->data['subscribers'] = table_count('event_bookings', array(), true);
 
         // dd(Auth::user()->email);
         return view('admin.dashboard', $this->data);

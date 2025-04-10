@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\Index;
 use App\Http\Controllers\admin\Pages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\Booking_Controller;
+use App\Http\Controllers\admin\EventBookingController;
 
 use App\Http\Controllers\admin\Dashboard;
 use App\Http\Controllers\admin\Gallery;
@@ -235,6 +236,11 @@ Route::middleware(['is_admin'])->group(function () {
     Route::get('/admin/booking', [Booking_Controller::class, 'index']);
     Route::match(['GET', 'POST'], '/admin/booking/view/{id}', [Booking_Controller::class, 'view']);
     Route::match(['GET', 'POST'], '/admin/booking/delete/{id}', [Booking_Controller::class, 'delete']);
+
+        /*==============================Reservation===========================*/
+        Route::get('/admin/reservation', [EventBookingController::class, 'index']);
+        Route::match(['GET', 'POST'], '/admin/reservation/view/{id}', [EventBookingController::class, 'view']);
+        Route::match(['GET', 'POST'], '/admin/reservation/delete/{id}', [EventBookingController::class, 'delete']);
 
     /*==============================Subscribers =====================================*/
     Route::get('/admin/subscribers', [Subscribers::class, 'index']);

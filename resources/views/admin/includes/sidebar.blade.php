@@ -167,12 +167,19 @@
             <span class="hide-menu">Booking Request</span>
           </a>
         </li>
+
         <li class="sidebar-item">
+          <a class="sidebar-link {{ $admin_page == 'reservation' ? 'active' : '' }}" href="{{ url('admin/reservation') }}" aria-expanded="false">
+            <iconify-icon icon="tabler:message-user"></iconify-icon>
+            <span class="hide-menu">Reservation</span>
+          </a>
+        </li>
+        <!-- <li class="sidebar-item">
           <a class="sidebar-link {{ $admin_page == 'subscribers' ? 'active' : '' }}" href="{{ url('admin/subscribers') }}" aria-expanded="false">
             <iconify-icon icon="jam:newsletter"></iconify-icon>
             <span class="hide-menu">Subscribers</span>
           </a>
-        </li>
+        </li> -->
 
 
       </ul>
